@@ -1,0 +1,84 @@
+/* Definizione Variabili */
+:root {
+    --accent: #38bdf8;
+    --surface: #0f172a;
+    --card: #1e293b;
+}
+
+/* Reset e Font Base */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--surface);
+    color: #f1f5f9;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Layout Header */
+.main-header {
+    background: radial-gradient(circle at top right, #1e293b, #0f172a);
+    border-bottom: 1px solid #334155;
+}
+
+/* Numerazione Sezioni */
+.step-number {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Stile Card */
+.content-card {
+    background: var(--card);
+    border: 1px solid #334155;
+    transition: all 0.4s ease;
+    height: 100%;
+}
+
+.content-card:hover {
+    border-color: #475569;
+    transform: translateY(-2px);
+    background: #243146;
+}
+
+/* Collegamenti di Navigazione */
+.nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    color: var(--accent);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: auto;
+    text-decoration: none;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Container */
+.custom-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Utility per il bordo tratteggiato dell'ultima sezione */
+.border-dashed {
+    border-style: dashed;
+}
