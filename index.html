@@ -1,11 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crittografia</title>
+    <title>Evoluzione della Crittografia: Un Percorso Storico</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Collegamento al file CSS esterno -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1> Per ora vuoto </h1>
+
+    <!-- Intestazione Principale -->
+    <header class="main-header py-24 px-8">
+        <div class="custom-container">
+            <h1 class="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">
+                Sistemi di Cifratura e Difesa del Dato
+            </h1>
+            <p class="text-lg text-slate-400 max-w-2xl font-light">
+                Dall'ingegno tattico dell'antichità classica alla complessità computazionale dei protocolli contemporanei. Un'analisi strutturata in sei tappe fondamentali.
+            </p>
+        </div>
+    </header>
+
+    <!-- Griglia dei Contenuti -->
+    <main class="py-20 px-8">
+        <div class="custom-container">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- TAPPA 1 -->
+                <article class="content-card p-8 rounded-lg flex flex-col">
+                    <span class="step-number">Sezione 01</span>
+                    <h2 class="text-xl font-bold mb-4 text-white">Crittografia antica: il cifrario di Cesare</h2>
+                    <p class="text-slate-400 text-sm mb-8">
+                        Analisi dei primi sistemi a sostituzione utilizzati in ambito militare, con particolare attenzione ai limiti strutturali della crittografia monoalfabetica.
+                    </p>
+                    <a href="tappa1.html" class="nav-link">Approfondisci</a>
+                </article>
+
+                <!-- TAPPA 2 -->
+                <article class="content-card p-8 rounded-lg flex flex-col">
+                    <span class="step-number">Sezione 02</span>
+                    <h2 class="text-xl font-bold mb-4 text-white">Crittografia classica: cifrari mono e polialfabetici</h2>
+                    <p class="text-slate-400 text-sm mb-8">
+                        L'evoluzione delle tecniche nel tardo Medioevo e nel Rinascimento. Studio del metodo di Vigenère e l'introduzione della frequenza statistica.
+                    </p>
+                    <a href="tappa2.html" class="nav-link">Approfondisci</a>
+                </article>
+
+                <!-- TAPPA 3 -->
+                <article class="content-card p-8 rounded-lg flex flex-col">
+                    <span class="step-number">Sezione 03</span>
+                    <h2 class="text-xl font-bold mb-4 text-white">Nascita della crittografia moderna</h2>
+                    <p class="text-slate-400 text-sm mb-8">
+                        Il passaggio dai metodi manuali a quelli meccanici. La rivoluzione delle macchine a rotori e il contributo fondamentale di Alan Turing.
+                    </p>
+                    <a href="tappa3.html" class="nav-link">Approfondisci</a>
+                </article>
+
+                <!-- TAPPA 4 -->
+                <article class="content-card p-8 rounded-lg flex flex-col">
+                    <span class="step-number">Sezione 04</span>
+                    <h2 class="text-xl font-bold mb-4 text-white">Crittografia simmetrica moderna</h2>
+                    <p class="text-slate-400 text-sm mb-8">
+                        Lo standard AES e gli algoritmi a chiave segreta. Come la computazione digitale ha trasformato la gestione della riservatezza dei dati.
+                    </p>
+                    <a href="tappa4.html" class="nav-link">Approfondisci</a>
+                </article>
+
+                <!-- TAPPA 5 -->
+                <article class="content-card p-8 rounded-lg flex flex-col">
+                    <span class="step-number">Sezione 05</span>
+                    <h2 class="text-xl font-bold mb-4 text-white">Crittografia asimmetrica e hash</h2>
+                    <p class="text-slate-400 text-sm mb-8">
+                        Il paradigma della chiave pubblica e privata. Fondamenti matematici della firma elettronica e garanzia dell'integrità del messaggio.
+                    </p>
+                    <a href="tappa5.html" class="nav-link">Approfondisci</a>
+                </article>
+
+                <!-- TAPPA 6 -->
+                <article class="content-card p-8 rounded-lg flex flex-col border-dashed">
+                    <span class="step-number">Sezione 06</span>
+                    <h2 class="text-xl font-bold mb-4 text-white">Crittografia oggi: protocolli e legalità</h2>
+                    <p class="text-slate-400 text-sm mb-8">
+                        Applicazioni pratiche nel web moderno: HTTPS, TLS e l'impatto delle normative sulla privacy nella società dell'informazione.
+                    </p>
+                    <a href="tappa6.html" class="nav-link">Approfondisci</a>
+                </article>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 border-t border-slate-800">
+        <div class="custom-container px-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs tracking-widest uppercase">
+            <p>© 2026 Progetto Archivio Storico Crittografico</p>
+            <div class="mt-4 md:mt-0 space-x-6">
+                <span>Riservato ad uso didattico</span>
+                <span>Documentazione Tecnica</span>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
