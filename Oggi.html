@@ -2,30 +2,415 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Crittografia Oggi: Protocolli e Legalità</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crittografia Oggi: Protocolli e Legalità - Archivio Digitale</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass-panel { background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(51, 65, 85, 0.5); }
+        @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .live-dot { animation: pulse-dot 2s infinite; }
+    </style>
 </head>
-<body class="bg-slate-950 text-white">
-    <nav class="py-6 px-8 border-b border-slate-800">
-        <div class="custom-container flex justify-between">
-            <div class="text-xs text-slate-500 uppercase tracking-widest">Sezione 06</div>
-            <a href="index.html" class="nav-link">← Home</a>
+<body class="bg-slate-950 text-white font-['Plus_Jakarta_Sans']">
+
+    <nav class="py-6 px-8 border-b border-slate-800 bg-slate-950 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Sezione 06 / La Crittografia Oggi</div>
+            <div class="relative group">
+                <button class="text-sm font-semibold text-sky-400 hover:text-white transition-all flex items-center gap-2 py-2 px-4 border border-sky-500/20 rounded-lg">
+                    Esplora Archivio
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="absolute right-0 mt-2 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div class="p-2">
+                        <a href="index.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg border-b border-slate-800/50 mb-1">Home</a>
+                        <a href="ANTICA_CifrarioCesare.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">01. Antica</a>
+                        <a href="CLASSICA_CifrariMonoPoliAlfabetici.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">02. Rinascimentale</a>
+                        <a href="Moderna.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">03. Moderna</a>
+                        <a href="Simmetrica.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">04. Simmetrica</a>
+                        <a href="AssimetricaHASH.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">05. Asimmetrica & Hash</a>
+                        <a href="Oggi.html" class="block px-4 py-2 text-sm text-sky-400 bg-slate-800/30 rounded-lg text-xs font-bold">06. Oggi</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <main class="py-16">
-        <div class="max-w-5xl mx-auto px-8">
-            <h1 class="text-4xl font-bold mb-12">La crittografia ai giorni nostri</h1>
-            
-            <div class="grid gap-8">
-                <section class="content-card p-8 rounded-lg border border-slate-800 bg-slate-900/50">
-                    <h2 class="text-xl text-sky-400 mb-4"></h2>
-                    <p class="text-slate-400 mb-4">
+    <main class="py-16 px-8">
+        <div class="max-w-5xl mx-auto">
+
+            <header class="mb-20 text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1 border border-emerald-500/30 rounded-full text-[10px] uppercase tracking-widest text-emerald-400 font-bold mb-4">
+                    <span class="w-2 h-2 bg-emerald-500 rounded-full live-dot"></span>
+                    Tappa 6: Il Presente
+                </div>
+                <h1 class="text-6xl font-extrabold mb-6 bg-gradient-to-r from-white via-emerald-400 to-slate-500 bg-clip-text text-transparent italic tracking-tight">
+                    La Crittografia Oggi
+                </h1>
+                <p class="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
+                    Dai protocolli invisibili che proteggono ogni click, alle sfide legali della privacy, fino alla minaccia imminente dei computer quantistici.
+                </p>
+            </header>
+
+            <!-- TLS / HTTPS -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12 border-l-4 border-l-emerald-500">
+                <h2 class="text-3xl font-bold text-emerald-400 mb-2 italic">TLS 1.3 & HTTPS: L'Invisibile Custode del Web</h2>
+                <p class="text-slate-500 text-sm mb-8">Transport Layer Security — il protocollo che protegge ogni connessione web</p>
+
+                <p class="text-slate-300 leading-relaxed mb-8 max-w-2xl">
+                    Ogni volta che vedi <span class="mono text-emerald-400">https://</span> o il lucchetto nel browser, stai usando TLS. In meno di un secondo, il tuo browser e il server negoziano una connessione cifrata senza che tu debba fare nulla.
+                </p>
+
+                <!-- TLS Handshake -->
+                <div class="bg-slate-950/70 p-8 rounded-2xl border border-slate-800 mb-8">
+                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6 text-center">TLS 1.3 Handshake — Il Protocollo in 1 Round-Trip</h4>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Client side -->
+                        <div class="space-y-4">
+                            <div class="text-center text-sm font-bold text-sky-400 mb-4 pb-2 border-b border-slate-800">🖥 CLIENT (Browser)</div>
+                            <div class="p-3 bg-sky-500/10 border border-sky-500/20 rounded-lg text-xs mono">
+                                <div class="text-sky-400 font-bold">→ ClientHello</div>
+                                <div class="text-slate-500 mt-1">Versione TLS, cipher suites supportate,<br>chiave pubblica Diffie-Hellman temporanea</div>
+                            </div>
+                            <div class="text-center text-slate-600 text-xs">↕ Scambio</div>
+                            <div class="p-3 bg-slate-900/50 border border-slate-800 rounded-lg text-xs mono">
+                                <div class="text-slate-400 font-bold">← ServerHello + Certificato</div>
+                                <div class="text-slate-500 mt-1">Cipher suite scelta, chiave DH server,<br>certificato X.509, firma</div>
+                            </div>
+                            <div class="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-xs mono">
+                                <div class="text-emerald-400 font-bold">→ Finished</div>
+                                <div class="text-slate-500 mt-1">Verifica certificato, calcola session key,<br>invia conferma cifrata</div>
+                            </div>
+                        </div>
+                        <!-- Result -->
+                        <div class="flex flex-col justify-center space-y-4">
+                            <div class="p-5 bg-gradient-to-br from-emerald-500/10 to-transparent border border-emerald-500/20 rounded-2xl text-center">
+                                <div class="text-emerald-400 text-2xl mb-2">🔒</div>
+                                <div class="text-emerald-400 font-bold text-sm mb-2">Connessione Cifrata</div>
+                                <div class="text-xs text-slate-400 space-y-1">
+                                    <div>Algoritmo: <span class="mono text-white">AES-256-GCM</span></div>
+                                    <div>KE: <span class="mono text-white">ECDHE</span></div>
+                                    <div>Auth: <span class="mono text-white">RSA / ECDSA</span></div>
+                                    <div>Hash: <span class="mono text-white">SHA-384</span></div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-sky-500/5 border border-sky-500/20 rounded-xl">
+                                <h5 class="text-sky-400 font-bold text-xs mb-2">Forward Secrecy</h5>
+                                <p class="text-xs text-slate-500">TLS 1.3 richiede obbligatoriamente chiavi DH temporanee (effimere): anche se la chiave privata del server venisse compromessa in futuro, le sessioni passate rimangono protette.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Versioni TLS -->
+                <h3 class="text-lg font-bold text-white mb-4">Evoluzione di TLS</h3>
+                <div class="space-y-2">
+                    <div class="flex items-center gap-4 p-3 bg-rose-500/5 border border-rose-500/10 rounded-lg text-xs">
+                        <span class="mono font-bold text-rose-400 w-20 shrink-0">SSL 3.0</span>
+                        <span class="text-slate-500">1996 — Obsoleto. Vulnerabile a POODLE, BEAST. Disabilitato.</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 bg-rose-500/5 border border-rose-500/10 rounded-lg text-xs">
+                        <span class="mono font-bold text-amber-400 w-20 shrink-0">TLS 1.0/1.1</span>
+                        <span class="text-slate-500">1999-2006 — Deprecati nel 2020. Non più supportati dai browser moderni.</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 bg-sky-500/5 border border-sky-500/20 rounded-lg text-xs">
+                        <span class="mono font-bold text-sky-400 w-20 shrink-0">TLS 1.2</span>
+                        <span class="text-slate-500">2008 — Ancora molto diffuso. Sicuro se configurato correttamente (cipher suites moderne).</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 bg-emerald-500/5 border-2 border-emerald-500/30 rounded-lg text-xs">
+                        <span class="mono font-bold text-emerald-400 w-20 shrink-0">TLS 1.3</span>
+                        <span class="text-slate-300">2018 — Standard attuale. Handshake in 1 RTT, rimossi algoritmi deboli, Forward Secrecy obbligatoria.</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PKI e Certificati -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12">
+                <h2 class="text-3xl font-bold text-sky-400 mb-2 italic">PKI: La Catena di Fiducia</h2>
+                <p class="text-slate-500 text-sm mb-8">Public Key Infrastructure — Come si verifica che una chiave pubblica sia autentica?</p>
+
+                <div class="grid md:grid-cols-2 gap-10 mb-10">
+                    <div>
+                        <p class="text-slate-300 leading-relaxed mb-6">
+                            Conoscere la chiave pubblica di un sito non basta: come sai che quella chiave appartiene davvero a <em>amazon.com</em> e non a un impostore? La risposta è la <strong>catena di certificati X.509</strong>.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed">
+                            Una <strong>Certificate Authority (CA)</strong> — un'entità fidata come Let's Encrypt, DigiCert o Comodo — firma digitalmente il certificato del sito, attestandone l'identità. Il tuo browser si fida di un elenco preinstallato di CA radice.
+                        </p>
+                    </div>
+                    <!-- Catena certificati -->
+                    <div class="space-y-2">
+                        <div class="p-4 bg-amber-500/10 border border-amber-500/20 rounded-xl text-center">
+                            <div class="text-amber-400 font-bold text-xs uppercase mb-1">Root CA</div>
+                            <div class="text-slate-400 text-xs">DigiCert Global Root G2</div>
+                            <div class="text-[10px] text-slate-600">Preinstallata nel browser / OS</div>
+                        </div>
+                        <div class="text-center text-slate-600 text-xs">↓ firma</div>
+                        <div class="p-4 bg-sky-500/10 border border-sky-500/20 rounded-xl text-center">
+                            <div class="text-sky-400 font-bold text-xs uppercase mb-1">Intermediate CA</div>
+                            <div class="text-slate-400 text-xs">DigiCert TLS RSA SHA256 2020 CA1</div>
+                            <div class="text-[10px] text-slate-600">CA intermedia</div>
+                        </div>
+                        <div class="text-center text-slate-600 text-xs">↓ firma</div>
+                        <div class="p-4 bg-emerald-500/10 border-2 border-emerald-500/30 rounded-xl text-center">
+                            <div class="text-emerald-400 font-bold text-xs uppercase mb-1">🔒 Certificato del Sito</div>
+                            <div class="text-slate-300 text-xs mono">amazon.com</div>
+                            <div class="text-[10px] text-slate-500">Valido: 2025-01-15 → 2026-02-15</div>
+                        </div>
+                        <p class="text-[10px] text-slate-600 italic text-center">Se una firma nella catena non è valida, il browser mostra l'errore "Connessione non sicura"</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
+                        <h4 class="text-white font-bold text-xs mb-2">DV (Domain Validation)</h4>
+                        <p class="text-xs text-slate-500">Verifica solo il controllo del dominio. Emesso in minuti. Usato per siti semplici. Let's Encrypt offre questi gratuitamente.</p>
+                    </div>
+                    <div class="p-4 bg-slate-950/50 rounded-xl border border-sky-500/20">
+                        <h4 class="text-sky-400 font-bold text-xs mb-2">OV (Organization Validation)</h4>
+                        <p class="text-xs text-slate-500">Verifica anche l'identità dell'organizzazione. Il browser mostra il nome dell'azienda nel certificato.</p>
+                    </div>
+                    <div class="p-4 bg-slate-950/50 rounded-xl border border-amber-500/20">
+                        <h4 class="text-amber-400 font-bold text-xs mb-2">EV (Extended Validation)</h4>
+                        <p class="text-xs text-slate-500">Il massimo livello di verifica. Usato da banche e siti istituzionali. Richiede documentazione legale.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- End-to-End Encryption -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12 border-l-4 border-l-violet-500">
+                <h2 class="text-3xl font-bold text-violet-400 mb-6 italic">Cifratura End-to-End (E2EE)</h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            Nei sistemi E2EE, i messaggi vengono cifrati sul dispositivo del mittente e decifrati solo sul dispositivo del destinatario. Nemmeno il provider del servizio può leggere i contenuti — anche se intercettasse i dati.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-slate-950/50 rounded-lg border border-slate-800 text-xs">
+                                <h5 class="text-white font-bold mb-1">Signal Protocol</h5>
+                                <p class="text-slate-500">Usato da Signal, WhatsApp, Messenger. Combina Diffie-Hellman a doppia ratchet per garantire Forward Secrecy messaggio per messaggio.</p>
+                            </div>
+                            <div class="p-3 bg-slate-950/50 rounded-lg border border-slate-800 text-xs">
+                                <h5 class="text-white font-bold mb-1">PGP / GPG</h5>
+                                <p class="text-slate-500">Standard storico per email cifrate. Ancora usato da giornalisti e attivisti. Basato su crittografia asimmetrica RSA o ECC.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-950/50 p-6 rounded-2xl border border-slate-800">
+                        <h4 class="text-violet-400 font-bold text-xs uppercase tracking-widest mb-4">Confronto: E2EE vs TLS</h4>
+                        <div class="space-y-4 text-xs text-slate-400">
+                            <div>
+                                <div class="font-bold text-white mb-1">Solo TLS (es. email tradizionale)</div>
+                                <div class="flex items-center gap-2 text-[10px] mono text-slate-500">
+                                    <span class="text-sky-400">Alice</span> → 
+                                    <span class="text-emerald-400">[TLS cifrato]</span> → 
+                                    <span class="text-amber-400">SERVER</span> → 
+                                    <span class="text-emerald-400">[TLS cifrato]</span> → 
+                                    <span class="text-sky-400">Bob</span>
+                                </div>
+                                <p class="text-[10px] text-rose-400 mt-1">⚠ Il server vede il contenuto in chiaro</p>
+                            </div>
+                            <div class="border-t border-slate-800 pt-4">
+                                <div class="font-bold text-white mb-1">E2EE (es. Signal)</div>
+                                <div class="flex items-center gap-2 text-[10px] mono text-slate-500">
+                                    <span class="text-sky-400">Alice</span> → 
+                                    <span class="text-violet-400">[cifrato E2E]</span> → 
+                                    <span class="text-slate-600">server</span> → 
+                                    <span class="text-violet-400">[cifrato E2E]</span> → 
+                                    <span class="text-sky-400">Bob</span>
+                                </div>
+                                <p class="text-[10px] text-emerald-400 mt-1">✓ Il server non può decifrare nulla</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GDPR e aspetti legali -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12 border-t-4 border-t-amber-500">
+                <h2 class="text-3xl font-bold text-amber-400 mb-6 italic">GDPR e il Quadro Normativo</h2>
+                <div class="grid md:grid-cols-2 gap-10 mb-8">
+                    <div>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            Il <strong>GDPR (General Data Protection Regulation)</strong>, in vigore nell'UE dal 2018, ha dato alla crittografia un ruolo legale esplicito. Non è solo una buona pratica tecnica — è una misura di compliance obbligatoria per chi tratta dati personali.
+                        </p>
+                        <div class="space-y-3 text-sm">
+                            <div class="p-3 bg-amber-500/10 border border-amber-500/20 rounded-lg">
+                                <h5 class="text-amber-400 font-bold text-xs mb-1">Art. 25 — Privacy by Design</h5>
+                                <p class="text-xs text-slate-500">La protezione dei dati va integrata nel sistema fin dalla progettazione, non aggiunta a posteriori.</p>
+                            </div>
+                            <div class="p-3 bg-amber-500/10 border border-amber-500/20 rounded-lg">
+                                <h5 class="text-amber-400 font-bold text-xs mb-1">Art. 32 — Misure Tecniche</h5>
+                                <p class="text-xs text-slate-500">La cifratura dei dati è esplicitamente citata come misura tecnica adeguata per garantire la sicurezza del trattamento.</p>
+                            </div>
+                            <div class="p-3 bg-amber-500/10 border border-amber-500/20 rounded-lg">
+                                <h5 class="text-amber-400 font-bold text-xs mb-1">Art. 34 — Data Breach</h5>
+                                <p class="text-xs text-slate-500">Se i dati violati erano cifrati, l'azienda può essere esentata dall'obbligo di notifica pubblica agli interessati.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold mb-4">Il Dibattito Backdoor</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Governi di tutto il mondo chiedono alle aziende tecnologiche di inserire "<strong>backdoor</strong>" nelle app cifrate per permettere l'accesso alle autorità.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-slate-950/50 rounded-lg border border-rose-500/20 text-xs">
+                                <h5 class="text-rose-400 font-bold mb-1">Argomentazione degli stati</h5>
+                                <p class="text-slate-500">La cifratura totale ostacola le indagini su terrorismo, pedopornografia e crimine organizzato.</p>
+                            </div>
+                            <div class="p-3 bg-slate-950/50 rounded-lg border border-emerald-500/20 text-xs">
+                                <h5 class="text-emerald-400 font-bold mb-1">Risposta dei crittografi</h5>
+                                <p class="text-slate-500">Una backdoor accessibile ai "buoni" è matematicamente accessibile anche ai "cattivi". Non esiste cifratura "sicura solo per chi di dovere".</p>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-xs text-slate-500 italic">Nel 2016, Apple ha resistito all'ordine dell'FBI di sbloccare l'iPhone di un attentatore, aprendo un caso legale storico sul diritto alla privacy digitale.</p>
+                    </div>
+                </div>
+
+                <!-- Sanzioni GDPR -->
+                <div class="bg-slate-950/50 p-6 rounded-2xl border border-amber-500/20">
+                    <h4 class="text-amber-400 font-bold text-xs uppercase tracking-widest mb-4">Alcune Sanzioni GDPR per Mancata Protezione</h4>
+                    <div class="grid md:grid-cols-3 gap-4 text-xs">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-rose-400 mono">€1.2 Mld</div>
+                            <div class="text-slate-400 mt-1">Meta (Facebook) 2023</div>
+                            <div class="text-slate-600 text-[10px]">Trasferimento dati UE→USA illegale</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-rose-400 mono">€746 M</div>
+                            <div class="text-slate-400 mt-1">Amazon 2021</div>
+                            <div class="text-slate-600 text-[10px]">Trattamento dati senza consenso</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-rose-400 mono">€50 M</div>
+                            <div class="text-slate-400 mt-1">Google (Francia) 2019</div>
+                            <div class="text-slate-600 text-[10px]">Mancanza di trasparenza</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Crittografia Quantistica -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12 border-l-4 border-l-rose-500">
+                <h2 class="text-3xl font-bold text-rose-400 mb-2 italic">La Minaccia Quantistica</h2>
+                <p class="text-slate-500 text-sm mb-8">Post-Quantum Cryptography — La prossima rivoluzione</p>
+
+                <div class="grid md:grid-cols-2 gap-10 mb-10">
+                    <div>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            I computer quantistici non sono più fantascienza. Macchine come quelle di IBM e Google stanno raggiungendo decine di migliaia di qubit. Il problema: l'<strong>algoritmo di Shor</strong>, eseguibile su un computer quantistico sufficientemente grande, potrebbe fattorizzare i numeri primi su cui si basa RSA in tempo polinomiale.
+                        </p>
+                        <div class="p-4 bg-rose-500/10 border border-rose-500/20 rounded-xl text-sm text-rose-300 mb-4">
+                            Un computer classico: miliardi di anni per rompere RSA-2048<br>
+                            Un computer quantistico maturo: ore o giorni
+                        </div>
+                        <p class="text-slate-300 leading-relaxed text-sm">
+                            Non è un problema solo futuro. Esiste l'attacco <strong>"harvest now, decrypt later"</strong>: avversari raccolgono oggi traffico cifrato HTTPS, in attesa di decifrarlo quando i computer quantistici saranno abbastanza potenti.
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest">Algoritmi a Rischio</h4>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between p-3 bg-rose-500/10 border border-rose-500/20 rounded-lg text-xs">
+                                <span class="mono font-bold text-rose-400">RSA</span>
+                                <span class="text-rose-300">Vulnerabile (Algoritmo di Shor)</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-rose-500/10 border border-rose-500/20 rounded-lg text-xs">
+                                <span class="mono font-bold text-rose-400">ECC / ECDSA</span>
+                                <span class="text-rose-300">Vulnerabile (Algoritmo di Shor)</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-amber-500/10 border border-amber-500/20 rounded-lg text-xs">
+                                <span class="mono font-bold text-amber-400">AES-128</span>
+                                <span class="text-amber-300">Indebolito (Grover) → usare 256</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-xs">
+                                <span class="mono font-bold text-emerald-400">AES-256</span>
+                                <span class="text-emerald-300">Resistente ai computer quantistici</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-xs">
+                                <span class="mono font-bold text-emerald-400">SHA-3</span>
+                                <span class="text-emerald-300">Resistente</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post-Quantum -->
+                <div class="bg-slate-950/50 p-8 rounded-2xl border border-slate-800">
+                    <h3 class="text-xl font-bold text-white mb-6 italic">NIST Post-Quantum Standards (2024)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Il NIST (National Institute of Standards and Technology) ha completato nel 2024 la standardizzazione di nuovi algoritmi crittografici resistenti ai computer quantistici, basati su problemi matematici diversi (reticoli, codici, hash).
                     </p>
-                </section>
-            </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-xl">
+                            <h5 class="text-emerald-400 font-bold text-xs uppercase mb-2">ML-KEM (Kyber)</h5>
+                            <p class="text-xs text-slate-500">Key Encapsulation Mechanism basato su reticoli. Sostituirà RSA per lo scambio di chiavi. Già adottato da Google Chrome e Cloudflare.</p>
+                        </div>
+                        <div class="p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-xl">
+                            <h5 class="text-emerald-400 font-bold text-xs uppercase mb-2">ML-DSA (Dilithium)</h5>
+                            <p class="text-xs text-slate-500">Firma digitale basata su reticoli. Sostituirà ECDSA. Più veloce della firma RSA e resistente ai computer quantistici.</p>
+                        </div>
+                        <div class="p-4 bg-sky-500/5 border border-sky-500/20 rounded-xl">
+                            <h5 class="text-sky-400 font-bold text-xs uppercase mb-2">SLH-DSA (SPHINCS+)</h5>
+                            <p class="text-xs text-slate-500">Firma basata su hash. Conservativa e ben compresa teoricamente. Usata quando si vuole massima fiducia nella sicurezza.</p>
+                        </div>
+                        <div class="p-4 bg-violet-500/5 border border-violet-500/20 rounded-xl">
+                            <h5 class="text-violet-400 font-bold text-xs uppercase mb-2">Transizione Ibrida</h5>
+                            <p class="text-xs text-slate-500">La strategia attuale è usare sia algoritmi classici che post-quantum in parallelo, finché la sicurezza dei nuovi non sia completamente verificata.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Applicazioni pratiche -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12">
+                <h2 class="text-3xl font-bold text-sky-400 mb-8 italic text-center">La Crittografia nella Vita Quotidiana</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-6 bg-slate-950/50 rounded-2xl border border-slate-800 hover:border-sky-500/30 transition-colors">
+                        <div class="text-3xl mb-3">💳</div>
+                        <h4 class="font-bold mb-2 text-white">Pagamenti</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">TLS + tokenizzazione del numero di carta. 3D Secure aggiunge autenticazione. I chip EMV nei POS usano crittografia asimmetrica per ogni transazione.</p>
+                    </div>
+                    <div class="p-6 bg-slate-950/50 rounded-2xl border border-slate-800 hover:border-sky-500/30 transition-colors">
+                        <div class="text-3xl mb-3">🔑</div>
+                        <h4 class="font-bold mb-2 text-white">Password Manager</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">AES-256 cifra il vault. La master password viene derivata con PBKDF2 o Argon2 (key stretching). Zero-knowledge: il provider non conosce mai le password.</p>
+                    </div>
+                    <div class="p-6 bg-slate-950/50 rounded-2xl border border-slate-800 hover:border-sky-500/30 transition-colors">
+                        <div class="text-3xl mb-3">₿</div>
+                        <h4 class="font-bold mb-2 text-white">Blockchain</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">SHA-256 per il Proof-of-Work di Bitcoin. ECDSA per le firme delle transazioni. La chiave privata del wallet è tutto: non esiste recupero password.</p>
+                    </div>
+                    <div class="p-6 bg-slate-950/50 rounded-2xl border border-slate-800 hover:border-sky-500/30 transition-colors">
+                        <div class="text-3xl mb-3">📱</div>
+                        <h4 class="font-bold mb-2 text-white">Smartphone</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">Il PIN/impronta sblocca una chiave AES che decifra l'intero storage. Il chip Secure Enclave (Apple) o TEE (Android) protegge le chiavi in hardware.</p>
+                    </div>
+                    <div class="p-6 bg-slate-950/50 rounded-2xl border border-slate-800 hover:border-sky-500/30 transition-colors">
+                        <div class="text-3xl mb-3">🛂</div>
+                        <h4 class="font-bold mb-2 text-white">Passaporti Digitali</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">Il chip RFID del passaporto biometrico usa RSA/ECC per autenticarsi. I dati biometrici sono firmati digitalmente dallo Stato emittente.</p>
+                    </div>
+                    <div class="p-6 bg-slate-950/50 rounded-2xl border border-slate-800 hover:border-sky-500/30 transition-colors">
+                        <div class="text-3xl mb-3">🌐</div>
+                        <h4 class="font-bold mb-2 text-white">DNS over HTTPS</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">Cifra le query DNS (chi visiti quali siti) che altrimenti viaggiavano in chiaro. Firefox, Chrome e Windows 11 lo supportano nativamente.</p>
+                    </div>
+                </div>
+            </section>
+
+
         </div>
     </main>
+
+    <footer class="py-12 border-t border-slate-900 text-center">
+        <div class="text-[10px] text-slate-600 uppercase tracking-[0.5em] font-bold">
+            Archivio Digitale — Fine Documentazione Sezione 06
+        </div>
+    </footer>
 </body>
 </html>
