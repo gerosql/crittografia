@@ -2,29 +2,284 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Crittografia Simmetrica Moderna</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crittografia Simmetrica Moderna - Archivio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass-panel { background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(51, 65, 85, 0.5); }
+    </style>
 </head>
-<body class="bg-slate-950 text-white">
-    <nav class="py-6 px-8 border-b border-slate-800">
-        <div class="custom-container flex justify-between">
-            <div class="text-xs text-slate-500 uppercase tracking-widest">Sezione 04 / Digitale</div>
-            <a href="index.html" class="nav-link">← Home</a>
+<body class="bg-slate-950 text-white font-['Plus_Jakarta_Sans']">
+    
+    <nav class="py-6 px-8 border-b border-slate-800 bg-slate-950 relative z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Sezione 04 / Era Digitale</div>
+            <div class="relative group">
+                <button class="text-sm font-semibold text-sky-400 hover:text-white transition-all flex items-center gap-2 py-2 px-4 border border-sky-500/20 rounded-lg">
+                    Esplora Archivio
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="absolute right-0 mt-2 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div class="p-2">
+                        <a href="index.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg border-b border-slate-800/50 mb-1">Home</a>
+                        <a href="ANTICA_CifrarioCesare.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">01. Antica</a>
+                        <a href="CLASSICA_CifrariMonoPoliAlfabetici.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">02. Rinascimentale</a>
+                        <a href="Moderna.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">03. Moderna</a>
+                        <a href="Simmetrica.html" class="block px-4 py-2 text-sm text-sky-400 bg-slate-800/30 rounded-lg text-xs font-bold">04. Simmetrica</a>
+                        <a href="AssimetricaHASH.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">05. Asimmetrica & Hash</a>
+                        <a href="Oggi.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">06. Oggi</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <main class="py-16">
-        <div class="max-w-4xl mx-auto px-8">
-            <h1 class="text-4xl font-bold mb-8">Crittografia simmetrica</h1>
+    <main class="py-16 px-8">
+        <div class="max-w-5xl mx-auto">
             
-            <section class="grid gap-6">
-                <div class="content-card p-8 rounded-lg">
-                    <h2 class="text-xl text-sky-400 mb-4 font-mono"></h2>
-                    <p class="text-slate-400"></p>
+            <header class="mb-16 text-center">
+                <div class="inline-block px-3 py-1 border border-sky-500/30 rounded-full text-[10px] uppercase tracking-widest text-sky-400 font-bold mb-4">
+                    Tappa 4: L'Era Digitale
                 </div>
-            </section>
+                <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-slate-500 bg-clip-text text-transparent">
+                    Crittografia Simmetrica
+                </h1>
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
+                    La tecnica fondamentale per nascondere e proteggere i dati digitali utilizzando una singola chiave segreta condivisa.
+                </p>
+            </header>
+
+            <div class="grid gap-8">
+                
+                <!-- Concetto -->
+                <section class="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl">
+                    <h2 class="text-2xl font-bold text-sky-400 mb-6 flex items-center gap-3">
+                        <span class="text-slate-700 font-mono">01.</span> Il Concetto di Chiave Privata
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-slate-300 mb-4">
+                                In questo sistema, la <strong>stessa chiave segreta</strong> viene utilizzata sia per la cifratura che per la decifratura. È fondamentale che mittente e destinatario custodiscano gelosamente questa chiave: se viene compromessa, chiunque può leggere i messaggi.
+                            </p>
+                            <ul class="space-y-3 text-sm text-slate-400 font-mono">
+                                <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-sky-500 rounded-full"></div> 1. Testo in Chiaro (Plaintext)</li>
+                                <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-sky-500 rounded-full"></div> 2. Algoritmo + Chiave Segreta condivisa</li>
+                                <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-sky-500 rounded-full"></div> 3. Testo Cifrato (Ciphertext)</li>
+                                <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div> 4. Decifrazione con la stessa chiave</li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-950/50 p-6 rounded-2xl border border-slate-800/50 flex flex-col justify-center">
+                            <p class="italic text-slate-500 text-sm mb-4">Schema di funzionamento:</p>
+                            <div class="flex items-center justify-between text-center gap-2 text-xs">
+                                <div class="p-2 border border-slate-700 rounded text-slate-300">Plaintext</div>
+                                <div class="text-sky-500">→</div>
+                                <div class="p-2 bg-sky-500/10 border border-sky-500/20 text-sky-400 rounded font-bold">CHIAVE</div>
+                                <div class="text-sky-500">→</div>
+                                <div class="p-2 border border-slate-700 rounded text-slate-300">Ciphertext</div>
+                            </div>
+                            <div class="flex items-center justify-between text-center gap-2 text-xs mt-3">
+                                <div class="p-2 border border-slate-700 rounded text-slate-300">Ciphertext</div>
+                                <div class="text-emerald-500">→</div>
+                                <div class="p-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded font-bold">STESSA CHIAVE</div>
+                                <div class="text-emerald-500">→</div>
+                                <div class="p-2 border border-slate-700 rounded text-slate-300">Plaintext</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Limite distribuzione -->
+                <section class="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl">
+                    <h2 class="text-2xl font-bold text-sky-400 mb-6 flex items-center gap-3">
+                        <span class="text-slate-700 font-mono">02.</span> Il Grande Limite: La Distribuzione
+                    </h2>
+                    <p class="text-slate-300 mb-6 leading-relaxed">
+                        Il problema principale è la <strong>distribuzione della chiave</strong>. Come inviare la chiave al destinatario in modo sicuro su una rete potenzialmente intercettata? Questo ostacolo — irrisolvibile con sola crittografia simmetrica — ha portato allo sviluppo della crittografia asimmetrica e del protocollo Diffie-Hellman.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="p-4 bg-red-500/5 border border-red-500/10 rounded-xl">
+                            <h4 class="text-red-400 font-bold text-xs uppercase mb-2">Criticità #1</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">Gestione complessa con molti utenti: per N persone servono N(N-1)/2 chiavi diverse — con 1000 utenti sono 499.500 chiavi!</p>
+                        </div>
+                        <div class="p-4 bg-red-500/5 border border-red-500/10 rounded-xl">
+                            <h4 class="text-red-400 font-bold text-xs uppercase mb-2">Criticità #2</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">Come scambiare la chiave inizialmente? Se il canale è insicuro, la chiave stessa è a rischio.</p>
+                        </div>
+                        <div class="p-4 bg-slate-950/50 border border-slate-800 rounded-xl">
+                            <h4 class="text-slate-400 font-bold text-xs uppercase mb-2">La Soluzione</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">Nella realtà, la simmetrica non lavora mai da sola: si usa la crittografia asimmetrica per scambiare la chiave, poi la simmetrica per cifrare i dati (approccio ibrido).</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Blocchi vs Flusso -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <section class="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl">
+                        <h3 class="text-xl font-bold text-white mb-4">Cifratura a Blocchi</h3>
+                        <p class="text-sm text-slate-400 mb-4">
+                            Divide il messaggio in blocchi di dimensione fissa (es. 128 bit per AES) e cifra ogni blocco separatamente. È lo standard nei sistemi moderni.
+                        </p>
+                        <div class="mono text-xs text-slate-500 bg-slate-950/50 p-3 rounded-lg border border-slate-800">
+                            "Ciao mondo come stai" →<br>
+                            [16 byte] [16 byte] [padded]<br>
+                            → 3 blocchi cifrati indipendenti
+                        </div>
+                    </section>
+                    <section class="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl">
+                        <h3 class="text-xl font-bold text-white mb-4">Cifratura a Flusso</h3>
+                        <p class="text-sm text-slate-400 mb-4">
+                            Cifra i dati bit per bit generando un flusso pseudo-casuale (keystream) combinato con i dati tramite XOR. Estremamente veloce e ideale per lo streaming real-time.
+                        </p>
+                        <div class="mono text-xs text-slate-500 bg-slate-950/50 p-3 rounded-lg border border-slate-800">
+                            Keystream = f(chiave, nonce)<br>
+                            Testo XOR Keystream = Cifrato<br>
+                            Es: ChaCha20 in TLS 1.3
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Algoritmi -->
+                <section class="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl overflow-hidden relative">
+                    <h2 class="text-2xl font-bold text-sky-400 mb-8 flex items-center gap-3">
+                        <span class="text-slate-700 font-mono">03.</span> Algoritmi di Riferimento
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-6 p-6 bg-slate-950/50 rounded-2xl border border-slate-800/50">
+                            <div class="px-4 py-2 bg-slate-800 rounded-lg font-mono text-xs font-bold text-slate-400 shrink-0">DES</div>
+                            <div>
+                                <h4 class="font-bold mb-1">Data Encryption Standard (1977 — Obsoleto)</h4>
+                                <p class="text-sm text-slate-500 leading-relaxed">Chiave a 56 bit, blocchi da 64 bit, 16 round. Oggi completamente insicuro: la chiave è troppo corta per resistere al brute force con hardware moderno. Nel 1999 il DES Cracker di EFF lo violò in meno di 24 ore.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6 p-6 bg-slate-950/50 rounded-2xl border border-amber-500/10">
+                            <div class="px-4 py-2 bg-amber-500/20 text-amber-400 rounded-lg font-mono text-xs font-bold shrink-0">3DES</div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-amber-400">Triple DES (1999 — Deprecato)</h4>
+                                <p class="text-sm text-slate-500 leading-relaxed">Applica DES tre volte. Chiave effettiva 112-168 bit. Lento e ingombrante. Deprecato dal NIST nel 2023 e rimosso da TLS 1.3.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6 p-6 border-2 border-sky-500/20 bg-sky-500/5 rounded-2xl">
+                            <div class="px-4 py-2 bg-sky-500 text-white rounded-lg font-mono text-xs font-bold shrink-0">AES</div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-sky-400">Advanced Encryption Standard (2001 — Gold Standard)</h4>
+                                <p class="text-sm text-slate-300 leading-relaxed mb-3">
+                                    Standard internazionale dal 2001. Chiavi da <strong>128, 192 o 256 bit</strong>. Opera su blocchi da 128 bit. Altamente sicuro ed efficiente in hardware dedicato.
+                                </p>
+                                <div class="grid grid-cols-3 gap-3 text-xs">
+                                    <div class="p-2 bg-sky-500/10 rounded-lg text-center">
+                                        <div class="text-sky-400 font-bold">AES-128</div>
+                                        <div class="text-slate-500">10 round</div>
+                                    </div>
+                                    <div class="p-2 bg-sky-500/10 rounded-lg text-center">
+                                        <div class="text-sky-400 font-bold">AES-192</div>
+                                        <div class="text-slate-500">12 round</div>
+                                    </div>
+                                    <div class="p-2 bg-sky-500/10 rounded-lg text-center">
+                                        <div class="text-sky-400 font-bold">AES-256</div>
+                                        <div class="text-slate-500">14 round</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- AES Internals -->
+                <section class="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl">
+                    <h2 class="text-2xl font-bold text-sky-400 mb-6 flex items-center gap-3">
+                        <span class="text-slate-700 font-mono">04.</span> Come Funziona AES: I 4 Passi per Round
+                    </h2>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        AES lavora su una "state matrix" 4×4 di byte (128 bit totali). In ogni round applica quattro trasformazioni sequenziali che implementano le proprietà di confusione e diffusione di Shannon.
+                    </p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div class="p-5 bg-slate-950/50 rounded-2xl border border-sky-500/20">
+                            <div class="text-sky-400 font-bold text-xs uppercase mb-3 tracking-widest">1. SubBytes</div>
+                            <p class="text-xs text-slate-500 leading-relaxed">Ogni byte viene sostituito tramite una S-box non lineare (tabella precomputed). Fornisce <strong>confusione</strong> e resistenza alla crittoanalisi lineare e differenziale.</p>
+                        </div>
+                        <div class="p-5 bg-slate-950/50 rounded-2xl border border-violet-500/20">
+                            <div class="text-violet-400 font-bold text-xs uppercase mb-3 tracking-widest">2. ShiftRows</div>
+                            <p class="text-xs text-slate-500 leading-relaxed">Le righe della state matrix vengono ruotate ciclicamente (riga 0: no shift, riga 1: +1, riga 2: +2, riga 3: +3). Distribuisce i byte su colonne diverse.</p>
+                        </div>
+                        <div class="p-5 bg-slate-950/50 rounded-2xl border border-emerald-500/20">
+                            <div class="text-emerald-400 font-bold text-xs uppercase mb-3 tracking-widest">3. MixColumns</div>
+                            <p class="text-xs text-slate-500 leading-relaxed">Ogni colonna viene moltiplicata per una matrice fissa in GF(2⁸). Garantisce la <strong>diffusione</strong>: ogni byte di output dipende da tutti e 4 i byte della colonna.</p>
+                        </div>
+                        <div class="p-5 bg-slate-950/50 rounded-2xl border border-amber-500/20">
+                            <div class="text-amber-400 font-bold text-xs uppercase mb-3 tracking-widest">4. AddRoundKey</div>
+                            <p class="text-xs text-slate-500 leading-relaxed">XOR con la round key (derivata dalla chiave principale tramite key schedule). Questa è l'unica fase che usa la chiave e introduce la dipendenza dalla chiave segreta.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-sky-500/5 border border-sky-500/20 rounded-xl text-xs text-slate-400">
+                        <strong class="text-sky-400">Perché AES è sicuro?</strong> Dopo 14 round (AES-256), ogni bit del testo cifrato dipende da ogni bit del plaintext e da ogni bit della chiave. Il miglior attacco noto è la crittoanalisi correlata-chiave, che riduce minimamente la sicurezza effettiva ma richiede condizioni praticamente irrealizzabili.
+                    </div>
+                </section>
+
+                <!-- ECB vs CBC -->
+                <section class="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl">
+                    <h2 class="text-2xl font-bold text-sky-400 mb-6">Modalità Operative: ECB vs CBC vs GCM</h2>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Gli algoritmi a blocchi richiedono una "modalità" per gestire messaggi più lunghi di un singolo blocco. La scelta è critica.
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="p-6 bg-slate-950/50 border border-rose-500/20 rounded-2xl">
+                            <h4 class="text-red-400 font-bold mb-3 uppercase text-xs">ECB (Electronic Codebook)</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">Cifra ogni blocco indipendentemente. Blocchi di testo uguali generano cifrati uguali, rivelando pattern nei dati. <strong>Da non usare mai</strong> — una foto cifrata in ECB rimane parzialmente riconoscibile.</p>
+                            <div class="text-[10px] text-rose-400 border border-rose-500/20 rounded p-2 text-center">⛔ DEPRECATO</div>
+                        </div>
+                        <div class="p-6 bg-slate-950/50 border border-sky-500/20 rounded-2xl">
+                            <h4 class="text-sky-400 font-bold mb-3 uppercase text-xs">CBC (Cipher Block Chaining)</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">Ogni blocco dipende dal precedente (XOR con cifrato precedente). Utilizza un <strong>IV (Initialization Vector)</strong> casuale. Buona sicurezza ma non autentica il messaggio.</p>
+                            <div class="text-[10px] text-sky-400 border border-sky-500/20 rounded p-2 text-center">✓ USABILE</div>
+                        </div>
+                        <div class="p-6 border-2 border-emerald-500/30 bg-emerald-500/5 rounded-2xl">
+                            <h4 class="text-emerald-400 font-bold mb-3 uppercase text-xs">GCM (Galois/Counter Mode)</h4>
+                            <p class="text-xs text-slate-300 leading-relaxed mb-4">Combina cifratura e autenticazione (AEAD). Rileva qualsiasi modifica ai dati cifrati. Standard obbligatorio in TLS 1.3. Parallelizzabile e veloce.</p>
+                            <div class="text-[10px] text-emerald-400 border border-emerald-500/20 rounded p-2 text-center">⭐ STANDARD ATTUALE</div>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-sky-500/10 border border-sky-500/20 rounded-xl">
+                        <h5 class="text-sky-400 text-sm font-bold mb-2 uppercase tracking-widest">Focus: Initialization Vector (IV)</h5>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            L'IV non deve essere segreto, ma deve essere <strong>casuale o unico</strong> per ogni operazione. Se gestito male o riutilizzato, può rendere insicura anche la cifratura più forte — come dimostrò il caso TLS 1.0 (attacco BEAST, 2011).
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Utilizzi -->
+                <section class="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl">
+                    <h2 class="text-2xl font-bold text-sky-400 mb-6">Dove viene utilizzata?</h2>
+                    <p class="text-slate-300 mb-6">
+                        Sebbene invisibile, la crittografia simmetrica è il "motore" che protegge la nostra vita digitale quotidiana. Opera sempre in combinazione con la crittografia asimmetrica.
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center mb-8">
+                        <div class="p-4 bg-slate-950 rounded-2xl border border-slate-800 text-xs font-mono text-slate-500">HTTPS / TLS</div>
+                        <div class="p-4 bg-slate-950 rounded-2xl border border-slate-800 text-xs font-mono text-slate-500">Wi-Fi (WPA3)</div>
+                        <div class="p-4 bg-slate-950 rounded-2xl border border-slate-800 text-xs font-mono text-slate-500">VPN / Tunneling</div>
+                        <div class="p-4 bg-slate-950 rounded-2xl border border-slate-800 text-xs font-mono text-slate-500">Disk Encryption</div>
+                        <div class="p-4 bg-slate-950 rounded-2xl border border-slate-800 text-xs font-mono text-slate-500">Messaggistica E2E</div>
+                        <div class="p-4 bg-slate-950 rounded-2xl border border-slate-800 text-xs font-mono text-slate-500">Database</div>
+                        <div class="p-4 bg-slate-950 rounded-2xl border border-slate-800 text-xs font-mono text-slate-500">File System</div>
+                        <div class="p-4 bg-slate-950 rounded-2xl border border-slate-800 text-xs font-mono text-slate-500">Backup Cloud</div>
+                    </div>
+                    <div class="p-6 bg-gradient-to-br from-sky-500/20 to-transparent rounded-2xl border border-sky-500/30">
+                        <h4 class="text-sky-400 font-bold mb-2">Approccio Ibrido — Come funziona nella pratica</h4>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Nel TLS moderno: <strong>(1)</strong> la crittografia asimmetrica (ECDHE) viene usata per negoziare una chiave di sessione temporanea; <strong>(2)</strong> quella chiave AES-256-GCM viene usata per cifrare tutti i dati della sessione — veloce, sicura, autentica. La simmetrica gestisce i dati, l'asimmetrica gestisce l'accordo sulla chiave.
+                        </p>
+                    </div>
+                </section>
+
+            </div>
         </div>
     </main>
+
+    <footer class="py-12 border-t border-slate-800 text-center text-slate-500 text-xs uppercase tracking-widest">
+        © 2026 Progetto Crittografia - Archivi Digitali
+    </footer>
+
 </body>
 </html>
