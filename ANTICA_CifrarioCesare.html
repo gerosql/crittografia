@@ -3,29 +3,459 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cifrario di Cesare - Archivio Crittografico</title>
+    <title>Cifrario di Cesare - Archivio Digitale</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass-panel { background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(51, 65, 85, 0.5); }
+        .wheel-letter {
+            transition: all 0.3s ease;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            background: #38bdf8;
+            border: none;
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            background: rgba(51, 65, 85, 0.5);
+            border-radius: 4px;
+            height: 4px;
+        }
+        input[type=range] { -webkit-appearance: none; width: 100%; }
+    </style>
 </head>
-<body class="bg-slate-950 text-white">
-    <nav class="py-6 px-8 border-b border-slate-800">
-        <div class="custom-container flex justify-between items-center">
-            <div class="text-xs text-slate-500 uppercase tracking-widest">Sezione 01 / Antichità</div>
-            <a href="index.html" class="nav-link">← Torna alla Home</a>
+<body class="bg-slate-950 text-white font-['Plus_Jakarta_Sans']">
+    
+    <nav class="py-6 px-8 border-b border-slate-800 bg-slate-950 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Sezione 01 / Antichità</div>
+            <div class="relative group">
+                <button class="text-sm font-semibold text-sky-400 hover:text-white transition-all flex items-center gap-2 py-2 px-4 border border-sky-500/20 rounded-lg">
+                    Esplora Archivio
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="absolute right-0 mt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2">
+                        <a href="index.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">Home</a>
+                        <a href="ANTICA_CifrarioCesare.html" class="block px-4 py-2 text-sm text-sky-400 bg-slate-800/30 rounded-lg text-xs font-bold">01. Antica</a>
+                        <a href="CLASSICA_CifrariMonoPoliAlfabetici.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">02. Rinascimentale</a>
+                        <a href="Moderna.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">03. XX Secolo</a>
+                        <a href="Simmetrica.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">04. Digitale Simmetrica</a>
+                        <a href="AssimetricaHASH.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">05. Asimmetrica & Hash</a>
+                        <a href="Oggi.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">06. Oggi</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <main class="py-16">
-        <div class="max-w-4xl mx-auto px-8">
-            <h1 class="text-4xl font-bold mb-8">Il Cifrario di Cesare</h1>
+    <main class="py-16 px-8">
+        <div class="max-w-5xl mx-auto">
             
-            <div class="grid gap-8">
-                <section class="content-card p-8 rounded-lg">
-                    <h2 class="text-xl text-sky-400 mb-4"></h2>
-                    <p class="text-slate-400 mb-6"></p> 
+            <header class="mb-20 text-center">
+                <div class="inline-block px-3 py-1 border border-sky-500/30 rounded-full text-[10px] uppercase tracking-widest text-sky-400 font-bold mb-4">
+                    Tappa 1: Crittografia Classica
+                </div>
+                <h1 class="text-6xl font-extrabold mb-6 bg-gradient-to-r from-white via-sky-400 to-slate-500 bg-clip-text text-transparent italic tracking-tight">
+                    Il Cifrario di Cesare
+                </h1>
+                <p class="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
+                    Le radici della segretezza militare: come Giulio Cesare proteggeva i suoi ordini attraverso la sostituzione monoalfabetica.
+                </p>
+            </header>
+
+            <!-- Meccanismo -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12">
+                <div class="flex flex-col md:flex-row gap-10">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold text-sky-400 mb-6 italic">Il Meccanismo</h2>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            Il Cifrario di Cesare (I sec. a.C.) rappresenta il sistema crittografico più antico documentato. Si basa su una <strong>sostituzione monoalfabetica a scorrimento fisso</strong>.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            Ogni lettera del testo in chiaro viene sostituita da una lettera che si trova un numero costante di posizioni più avanti nell'alfabeto. Cesare utilizzava tipicamente uno <strong>spostamento di 3</strong> (ROT3), rendendo la "A" una "D", la "B" una "E" e così via.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed">
+                            Formalmente: <span class="mono text-sky-400">C = (P + k) mod 26</span> dove P è la posizione della lettera (A=0), k è la chiave (lo spostamento) e C è la lettera cifrata.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800 mono text-sm">
+                            <h3 class="text-sky-400 font-bold mb-4 uppercase tracking-widest text-xs italic">Esempio Pratico (Chiave: 3)</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between border-b border-slate-800 pb-2">
+                                    <span class="text-slate-500">Alfabeto:</span>
+                                    <span class="text-white text-xs">A B C D E F G H I ...</span>
+                                </div>
+                                <div class="flex justify-between border-b border-slate-800 pb-2">
+                                    <span class="text-slate-500">Cifrato:</span>
+                                    <span class="text-sky-400 text-xs font-bold">D E F G H I J K L ...</span>
+                                </div>
+                                <div class="flex justify-between border-b border-slate-800 pb-2 mt-4">
+                                    <span class="text-slate-500">Testo:</span>
+                                    <span class="text-white">CESARE</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-500">Cifrato:</span>
+                                    <span class="text-sky-400 font-bold">FHVDUH</span>
+                                </div>
+                            </div>
+                            <p class="mt-4 text-[10px] text-slate-500 leading-tight">
+                                La decifrazione avviene semplicemente compiendo lo spostamento inverso (3 posizioni indietro).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Strumento Interattivo -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12 border-t-4 border-t-sky-500">
+                <h2 class="text-3xl font-bold text-sky-400 mb-2 italic text-center">Strumento Interattivo</h2>
+                <p class="text-slate-500 text-center text-sm mb-8">Prova tu stesso il cifrario di Cesare</p>
+
+                <!-- Ruota visiva dell'alfabeto -->
+                <div class="mb-8">
+                    <div class="relative mx-auto" style="width: 280px; height: 280px;">
+                        <svg id="wheelSvg" viewBox="0 0 280 280" width="280" height="280">
+                            <circle cx="140" cy="140" r="125" fill="rgba(15,23,42,0.8)" stroke="rgba(51,65,85,0.5)" stroke-width="1"/>
+                            <circle cx="140" cy="140" r="85" fill="rgba(15,23,42,0.9)" stroke="rgba(51,65,85,0.5)" stroke-width="1"/>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center flex-col">
+                            <div id="shiftLabel" class="text-4xl font-bold text-sky-400 mono">3</div>
+                            <div class="text-[10px] text-slate-500 uppercase">spostamento</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider chiave -->
+                <div class="mb-8">
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 text-center">
+                        Chiave (spostamento): <span id="keyDisplay" class="text-sky-400">3</span>
+                    </label>
+                    <input type="range" id="shiftSlider" min="1" max="25" value="3" class="w-full">
+                    <div class="flex justify-between text-[10px] text-slate-600 mt-1">
+                        <span>1</span><span>ROT13 = 13</span><span>25</span>
+                    </div>
+                </div>
+
+                <!-- Modalità cifra/decifra -->
+                <div class="flex gap-2 mb-6 justify-center">
+                    <button id="encryptBtn" onclick="setMode('encrypt')" class="px-5 py-2 rounded-lg text-sm font-bold bg-sky-500 text-white transition-all">🔒 Cifra</button>
+                    <button id="decryptBtn" onclick="setMode('decrypt')" class="px-5 py-2 rounded-lg text-sm font-bold bg-slate-800 text-slate-400 hover:bg-slate-700 transition-all">🔓 Decifra</button>
+                </div>
+
+                <!-- Input/Output -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2" id="inputLabel">Testo in chiaro</label>
+                        <textarea id="inputText" placeholder="Scrivi il tuo messaggio..." 
+                            class="w-full h-32 bg-slate-900/60 border border-slate-700 rounded-xl p-4 text-white mono text-sm resize-none focus:outline-none focus:border-sky-500/50 placeholder-slate-700 uppercase"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2" id="outputLabel">Testo cifrato</label>
+                        <div id="outputText" class="w-full h-32 bg-slate-950/50 border border-slate-800 rounded-xl p-4 text-sky-400 mono text-sm overflow-auto break-all select-all">
+                            VFULYH LO WXR PHVVDJJLR...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analisi lettera per lettera -->
+                <div class="mt-6">
+                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">Trasformazione lettera per lettera</h4>
+                    <div id="letterMap" class="flex flex-wrap gap-2 min-h-8"></div>
+                </div>
+
+                <!-- Brute force -->
+                <div class="mt-8 bg-slate-950/50 p-6 rounded-2xl border border-slate-800">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="text-xs font-bold text-rose-400 uppercase tracking-widest">🔨 Attacco Forza Bruta — Tutte le 25 chiavi</h4>
+                        <button onclick="toggleBruteForce()" id="bfBtn" class="text-xs px-3 py-1 border border-slate-700 rounded-lg text-slate-400 hover:border-rose-500/50 hover:text-rose-400 transition-all">Mostra</button>
+                    </div>
+                    <div id="bruteForceResult" class="hidden space-y-1 max-h-48 overflow-y-auto">
+                    </div>
+                    <p class="text-[10px] text-slate-600 italic">Questo dimostra perché con soli 25 tasti possibili il cifrario è banalmente violabile.</p>
+                </div>
+            </section>
+
+            <!-- Vantaggi e limiti -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <section class="glass-panel p-8 rounded-[2rem] border-t-4 border-t-emerald-500">
+                    <h2 class="text-2xl font-bold text-emerald-400 mb-4 italic">Vantaggi Storici</h2>
+                    <ul class="space-y-4 text-sm text-slate-400">
+                        <li>
+                            <strong class="text-slate-200 block mb-1">Semplicità Operativa</strong>
+                            Richiedeva solo la conoscenza del numero di scorrimento, rendendo l'applicazione manuale rapida sul campo di battaglia.
+                        </li>
+                        <li>
+                            <strong class="text-slate-200 block mb-1">Barriera Culturale</strong>
+                            In un'epoca di bassissima alfabetizzazione, anche un cifrario così semplice risultava indecifrabile per la maggior parte dei nemici.
+                        </li>
+                        <li>
+                            <strong class="text-slate-200 block mb-1">Nessuna Attrezzatura</strong>
+                            Non richiedeva alcuno strumento fisico — solo la memoria del numero segreto.
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="glass-panel p-8 rounded-[2rem] border-t-4 border-t-rose-500">
+                    <h2 class="text-2xl font-bold text-rose-400 mb-4 italic">Limiti e Vulnerabilità</h2>
+                    <ul class="space-y-4 text-sm text-slate-400">
+                        <li>
+                            <strong class="text-slate-200 block mb-1">Brute Force Immediato</strong>
+                            Esistono solo 25 chiavi possibili. Un avversario può testarle tutte in minuti — come dimostrato dallo strumento sopra.
+                        </li>
+                        <li>
+                            <strong class="text-slate-200 block mb-1">Analisi delle Frequenze</strong>
+                            Il sistema non maschera la struttura della lingua. La lettera più frequente nel cifrato corrisponde alla lettera più comune della lingua (es. "E" in italiano e inglese).
+                        </li>
+                        <li>
+                            <strong class="text-slate-200 block mb-1">Chiave Spazio Minuscolo</strong>
+                            Con soli 25 valori di chiave possibili, la "sicurezza" dipende esclusivamente dalla segretezza del numero, non dalla complessità matematica.
+                        </li>
+                    </ul>
                 </section>
             </div>
+
+            <!-- Analisi delle frequenze -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12">
+                <h2 class="text-3xl font-bold text-sky-400 mb-6 italic text-center">Analisi delle Frequenze: Come si Viola</h2>
+                <p class="text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto text-center">
+                    Al-Kindi (IX sec.) fu il primo a descrivere l'analisi delle frequenze: ogni lingua ha distribuzioni statistiche caratteristiche delle lettere, che un cifrario monoalfabetico non può nascondere.
+                </p>
+
+                <!-- Distribuzione frequenze italiano -->
+                <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 text-center">Frequenza delle lettere in italiano (approssimata)</h4>
+                <div class="space-y-1 mb-6" id="freqChart">
+                    <!-- Generated by JS -->
+                </div>
+                <p class="text-xs text-slate-500 text-center italic">
+                    Se nel testo cifrato la lettera più frequente è "H", e in italiano è "E", lo spostamento è quasi certamente 3 (H - E = 3).
+                </p>
+            </section>
+
+            <!-- Approfondimento Storico -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12">
+                <h2 class="text-3xl font-bold text-sky-400 mb-8 text-center italic tracking-tighter">Approfondimento Storico</h2>
+                <div class="space-y-6 text-slate-300 leading-relaxed">
+                    <p>
+                        Lo storico <strong>Svetonio</strong>, nella <em>"Vita dei dodici Cesari"</em>, descrive minuziosamente l'uso che Giulio Cesare faceva di questo sistema per trasmettere ordini militari sensibili ai suoi generali. Svetonio nota che Cesare sostituiva la quarta lettera dell'alfabeto alla prima, la quinta alla seconda e così via per l'intera sequenza.
+                    </p>
+                    <div class="p-6 bg-sky-500/5 rounded-2xl border border-sky-500/20 italic text-sm">
+                        "Se qualcuno avesse voluto decifrare il testo, avrebbe dovuto sostituire la quarta lettera dell'alfabeto alla prima e così di seguito."
+                        <span class="block mt-2 text-[10px] text-slate-500 non-italic">— Svetonio, Vita di Giulio Cesare, 56</span>
+                    </div>
+                    <p>
+                        Augusto, nipote di Cesare, usava invece uno spostamento di 1, con la particolarità di non wrappare l'alfabeto: dopo la Z il messaggio terminava. Questo variante è descritta nella <em>Vita di Augusto</em>, anch'essa di Svetonio.
+                    </p>
+                    <p>
+                        Oggi questo concetto sopravvive in forme ludiche o didattiche, come il <strong>ROT13</strong> (spostamento di 13 posizioni), utilizzato spesso nei forum online per nascondere spoiler. ROT13 ha la proprietà matematica di essere autoreciproco: applicarlo due volte restituisce il testo originale.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6 mt-4">
+                        <div class="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
+                            <h4 class="text-white font-bold text-sm mb-2">Il Cifrario di Atbash</h4>
+                            <p class="text-sm text-slate-500">Variante ebraica dello stesso principio (IX-VI sec. a.C.): la prima lettera dell'alfabeto diventa l'ultima, la seconda la penultima, ecc. Usato nella Bibbia (libro di Geremia) per occultare riferimenti a Babilonia.</p>
+                        </div>
+                        <div class="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
+                            <h4 class="text-white font-bold text-sm mb-2">Lo Scitale Spartano</h4>
+                            <p class="text-sm text-slate-500">Contemporaneo a Cesare, gli Spartani usavano uno scitale (bastone) su cui avvolgevano un nastro di pelle. Il messaggio era leggibile solo con un bastone dello stesso diametro — primo esempio di cifrario a trasposizione.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
     </main>
+
+    <footer class="py-12 border-t border-slate-900 text-center">
+        <div class="text-[10px] text-slate-600 uppercase tracking-[0.5em] font-bold">
+            Archivio Digitale — Fine Documentazione Sezione 01
+        </div>
+    </footer>
+
+    <script>
+        const ALPHA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let currentMode = 'encrypt';
+        let currentShift = 3;
+        let bfVisible = false;
+
+        const freqIT = {
+            'E': 11.8, 'A': 11.7, 'I': 11.3, 'O': 9.8, 'N': 6.9, 'L': 6.5, 'R': 6.4, 'T': 5.6,
+            'S': 5.0, 'C': 4.5, 'U': 3.0, 'D': 3.7, 'P': 3.0, 'M': 2.5, 'V': 1.7, 'G': 1.6,
+            'H': 1.5, 'B': 1.0, 'F': 1.0, 'Z': 0.5, 'Q': 0.5, 'J': 0.0, 'K': 0.0, 'W': 0.0,
+            'X': 0.0, 'Y': 0.0
+        };
+
+        function cipher(text, shift, decrypt) {
+            const s = decrypt ? (26 - shift) % 26 : shift;
+            return text.toUpperCase().split('').map(c => {
+                const idx = ALPHA.indexOf(c);
+                return idx >= 0 ? ALPHA[(idx + s) % 26] : c;
+            }).join('');
+        }
+
+        function setMode(mode) {
+            currentMode = mode;
+            if (mode === 'encrypt') {
+                document.getElementById('encryptBtn').className = 'px-5 py-2 rounded-lg text-sm font-bold bg-sky-500 text-white transition-all';
+                document.getElementById('decryptBtn').className = 'px-5 py-2 rounded-lg text-sm font-bold bg-slate-800 text-slate-400 hover:bg-slate-700 transition-all';
+                document.getElementById('inputLabel').textContent = 'Testo in chiaro';
+                document.getElementById('outputLabel').textContent = 'Testo cifrato';
+            } else {
+                document.getElementById('decryptBtn').className = 'px-5 py-2 rounded-lg text-sm font-bold bg-sky-500 text-white transition-all';
+                document.getElementById('encryptBtn').className = 'px-5 py-2 rounded-lg text-sm font-bold bg-slate-800 text-slate-400 hover:bg-slate-700 transition-all';
+                document.getElementById('inputLabel').textContent = 'Testo cifrato';
+                document.getElementById('outputLabel').textContent = 'Testo in chiaro';
+            }
+            update();
+        }
+
+        function update() {
+            const input = document.getElementById('inputText').value || '';
+            const shift = parseInt(document.getElementById('shiftSlider').value);
+            currentShift = shift;
+            document.getElementById('keyDisplay').textContent = shift;
+            document.getElementById('shiftLabel').textContent = shift;
+
+            const isDecrypt = currentMode === 'decrypt';
+            const output = cipher(input, shift, isDecrypt);
+            document.getElementById('outputText').textContent = output || (isDecrypt ? 'INSERISCI TESTO CIFRATO...' : 'SCRIVI IL TUO MESSAGGIO...');
+
+            // Letter map
+            const lm = document.getElementById('letterMap');
+            lm.innerHTML = '';
+            const preview = input.toUpperCase().slice(0, 30);
+            for (const ch of preview) {
+                const idx = ALPHA.indexOf(ch);
+                const div = document.createElement('div');
+                if (idx >= 0) {
+                    const target = isDecrypt ? ALPHA[(idx + 26 - shift) % 26] : ALPHA[(idx + shift) % 26];
+                    div.className = 'flex flex-col items-center';
+                    div.innerHTML = `<span class="text-white mono text-xs font-bold">${ch}</span><span class="text-slate-600 text-[10px]">↓</span><span class="text-sky-400 mono text-xs font-bold">${target}</span>`;
+                } else {
+                    div.className = 'flex flex-col items-center opacity-40';
+                    div.innerHTML = `<span class="text-slate-500 mono text-xs">${ch}</span><span class="text-slate-700 text-[10px]">↓</span><span class="text-slate-500 mono text-xs">${ch}</span>`;
+                }
+                lm.appendChild(div);
+            }
+            if (input.length > 30) {
+                const more = document.createElement('div');
+                more.className = 'text-slate-600 text-xs self-center';
+                more.textContent = `+${input.length - 30}`;
+                lm.appendChild(more);
+            }
+
+            // Update wheel
+            drawWheel(shift);
+
+            // Brute force
+            if (bfVisible) renderBruteForce(input);
+        }
+
+        function drawWheel(shift) {
+            const svg = document.getElementById('wheelSvg');
+            // Remove old letters
+            svg.querySelectorAll('.wheel-ltr').forEach(e => e.remove());
+            const cx = 140, cy = 140;
+            for (let i = 0; i < 26; i++) {
+                const angle = (i / 26) * 2 * Math.PI - Math.PI / 2;
+                // Outer ring (original)
+                const or = 107;
+                const ox = cx + or * Math.cos(angle);
+                const oy = cy + or * Math.sin(angle);
+                const tOuter = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                tOuter.setAttribute('x', ox);
+                tOuter.setAttribute('y', oy + 4);
+                tOuter.setAttribute('text-anchor', 'middle');
+                tOuter.setAttribute('font-family', 'JetBrains Mono');
+                tOuter.setAttribute('font-size', '9');
+                tOuter.setAttribute('fill', 'rgba(148,163,184,0.7)');
+                tOuter.setAttribute('class', 'wheel-ltr');
+                tOuter.textContent = ALPHA[i];
+                svg.appendChild(tOuter);
+
+                // Inner ring (shifted)
+                const shiftedI = (i + shift) % 26;
+                const shiftedAngle = (shiftedI / 26) * 2 * Math.PI - Math.PI / 2;
+                const ir = 68;
+                const ix = cx + ir * Math.cos(angle);
+                const iy = cy + ir * Math.sin(angle);
+                const tInner = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                tInner.setAttribute('x', ix);
+                tInner.setAttribute('y', iy + 4);
+                tInner.setAttribute('text-anchor', 'middle');
+                tInner.setAttribute('font-family', 'JetBrains Mono');
+                tInner.setAttribute('font-size', '9');
+                tInner.setAttribute('fill', i === 0 ? '#38bdf8' : 'rgba(56,189,248,0.5)');
+                tInner.setAttribute('class', 'wheel-ltr');
+                tInner.textContent = ALPHA[(i + shift) % 26];
+                svg.appendChild(tInner);
+            }
+            // Connector line for A
+            const angle0 = -Math.PI / 2;
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttribute('x1', cx + 85 * Math.cos(angle0));
+            line.setAttribute('y1', cy + 85 * Math.sin(angle0));
+            line.setAttribute('x2', cx + 125 * Math.cos(angle0));
+            line.setAttribute('y2', cy + 125 * Math.sin(angle0));
+            line.setAttribute('stroke', 'rgba(56,189,248,0.4)');
+            line.setAttribute('stroke-width', '1');
+            line.setAttribute('stroke-dasharray', '2,2');
+            line.setAttribute('class', 'wheel-ltr');
+            svg.appendChild(line);
+        }
+
+        function toggleBruteForce() {
+            bfVisible = !bfVisible;
+            document.getElementById('bruteForceResult').classList.toggle('hidden', !bfVisible);
+            document.getElementById('bfBtn').textContent = bfVisible ? 'Nascondi' : 'Mostra';
+            if (bfVisible) renderBruteForce(document.getElementById('inputText').value);
+        }
+
+        function renderBruteForce(input) {
+            const container = document.getElementById('bruteForceResult');
+            container.innerHTML = '';
+            const text = input || 'FHVDUH';
+            for (let k = 1; k <= 25; k++) {
+                const deciphered = cipher(text, k, true);
+                const div = document.createElement('div');
+                div.className = 'flex items-center gap-3 text-xs py-1 border-b border-slate-900';
+                div.innerHTML = `<span class="mono text-slate-600 w-12 shrink-0">K = ${k}</span><span class="mono text-slate-400">${deciphered}</span>`;
+                container.appendChild(div);
+            }
+        }
+
+        function renderFreqChart() {
+            const container = document.getElementById('freqChart');
+            const sorted = Object.entries(freqIT).filter(([,v]) => v > 0).sort(([,a],[,b]) => b-a);
+            const max = sorted[0][1];
+            sorted.forEach(([letter, freq]) => {
+                const pct = (freq / max) * 100;
+                const div = document.createElement('div');
+                div.className = 'flex items-center gap-3';
+                div.innerHTML = `
+                    <span class="mono text-slate-400 w-4 text-xs text-right shrink-0">${letter}</span>
+                    <div class="flex-1 bg-slate-900 rounded-full h-4 overflow-hidden">
+                        <div class="h-full rounded-full ${freq > 8 ? 'bg-sky-500' : freq > 4 ? 'bg-sky-500/60' : 'bg-slate-700'}" style="width:${pct}%"></div>
+                    </div>
+                    <span class="text-slate-600 text-[10px] mono w-8 shrink-0">${freq}%</span>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        document.getElementById('shiftSlider').addEventListener('input', update);
+        document.getElementById('inputText').addEventListener('input', update);
+
+        // Init
+        drawWheel(3);
+        renderFreqChart();
+        update();
+    </script>
 </body>
 </html>
