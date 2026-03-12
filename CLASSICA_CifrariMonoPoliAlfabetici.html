@@ -2,28 +2,260 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Cifrari Classici - Evoluzione</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrari Mono e Polialfabetici - Archivio Digitale</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass-panel { background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(51, 65, 85, 0.5); }
+        .vig-cell { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-family: 'JetBrains Mono', monospace; }
+    </style>
 </head>
-<body class="bg-slate-950 text-white">
-    <nav class="py-6 px-8 border-b border-slate-800">
-        <div class="custom-container flex justify-between items-center">
-            <div class="text-xs text-slate-500 uppercase tracking-widest">Sezione 02 / Rinascimento</div>
-            <a href="index.html" class="nav-link">← Home</a>
+<body class="bg-slate-950 text-white font-['Plus_Jakarta_Sans']">
+    
+    <nav class="py-6 px-8 border-b border-slate-800 bg-slate-950 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Sezione 02 / Rinascimento & XIX Secolo</div>
+            <div class="relative group">
+                <button class="text-sm font-semibold text-sky-400 hover:text-white transition-all flex items-center gap-2 py-2 px-4 border border-sky-500/20 rounded-lg">
+                    Esplora Archivio
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="absolute right-0 mt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2">
+                        <a href="index.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">Home</a>
+                        <a href="ANTICA_CifrarioCesare.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">01. Antica</a>
+                        <a href="CLASSICA_CifrariMonoPoliAlfabetici.html" class="block px-4 py-2 text-sm text-sky-400 bg-slate-800/30 rounded-lg text-xs font-bold">02. Rinascimentale</a>
+                        <a href="Moderna.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">03. XX Secolo</a>
+                        <a href="Simmetrica.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">04. Digitale Simmetrica</a>
+                        <a href="AssimetricaHASH.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">05. Asimmetrica & Hash</a>
+                        <a href="Oggi.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">06. Oggi</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <main class="py-16">
-        <div class="max-w-4xl mx-auto px-8">
-            <h1 class="text-4xl font-bold mb-8">I cifrari mono e polialfabetici</h1 
-            <div class="grid gap-8">
-                <section class="content-card p-8 rounded-lg">
-                    <h2 class="text-xl text-sky-400 mb-4"></h2>
-                    <p class="text-slate-400 mb-6"></p> 
-                </section>
-            </div>
+    <main class="py-16 px-8">
+        <div class="max-w-5xl mx-auto">
+            
+            <header class="mb-20 text-center">
+                <div class="inline-block px-3 py-1 border border-sky-500/30 rounded-full text-[10px] uppercase tracking-widest text-sky-400 font-bold mb-4">
+                    Tappa 2: Evoluzione della Sostituzione
+                </div>
+                <h1 class="text-6xl font-extrabold mb-6 bg-gradient-to-r from-white via-sky-400 to-slate-500 bg-clip-text text-transparent italic tracking-tight">
+                    Mono vs Polialfabetici
+                </h1>
+                <p class="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
+                    Dalla staticità dei cifrari classici alla variabilità del Rinascimento: il salto qualitativo che cercò di sconfiggere l'analisi statistica.
+                </p>
+            </header>
+
+            <!-- Monoalfabetici -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12 border-l-4 border-l-sky-500">
+                <div class="flex flex-col md:flex-row gap-10">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold text-sky-400 mb-6 italic">Cifrari Monoalfabetici</h2>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            In questi sistemi (es. <strong>Cesare</strong>, <strong>Atbash</strong>, <strong>cifrario per sostituzione</strong>), la sostituzione è fissa: ogni lettera del testo in chiaro corrisponde sempre alla stessa lettera nel testo cifrato per tutto il messaggio.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            Un cifrario monoalfabetico generico ha uno spazio delle chiavi di 26! ≈ 4×10²⁶ permutazioni — astronomicamente più grande dei 25 del solo Cesare. Eppure, l'analisi delle frequenze lo viola comunque.
+                        </p>
+                        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                            <h4 class="text-xs font-bold text-slate-500 uppercase mb-2">Vantaggi & Svantaggi</h4>
+                            <ul class="text-sm text-slate-400 space-y-1">
+                                <li><span class="text-emerald-400">✓</span> Semplice da applicare manualmente</li>
+                                <li><span class="text-emerald-400">✓</span> Spazio delle chiavi ampio (26! per sostituzione libera)</li>
+                                <li><span class="text-rose-400">✗</span> Vulnerabile all'<strong>analisi di frequenza</strong>: i pattern della lingua non vengono mascherati</li>
+                                <li><span class="text-rose-400">✗</span> Anche la frequenza di bigrammi e trigrammi è preservata</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="h-full flex flex-col gap-4">
+                            <div class="flex-1 flex items-center justify-center p-6 bg-slate-950/50 rounded-2xl border border-slate-800 italic text-slate-500 text-center text-sm">
+                                "La debolezza risiede nella costanza: se la 'E' diventa sempre 'X', il segreto svanisce con la statistica."
+                            </div>
+                            <div class="p-4 bg-slate-950/50 rounded-xl border border-slate-800 mono text-xs">
+                                <div class="text-slate-500 mb-2 uppercase text-[10px]">Al-Kindi (IX sec.) — L'attacco</div>
+                                <div class="text-slate-400">Conta le lettere nel cifrato:</div>
+                                <div class="mt-2 flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-sky-500/20 text-sky-400 rounded">X → 28</span>
+                                    <span class="px-2 py-1 bg-slate-800 text-slate-400 rounded">K → 19</span>
+                                    <span class="px-2 py-1 bg-slate-800 text-slate-400 rounded">R → 14</span>
+                                </div>
+                                <div class="mt-2 text-slate-500">X è probabilmente E (più frequente in italiano)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Polialfabetici -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12 border-l-4 border-l-indigo-500">
+                <h2 class="text-3xl font-bold text-indigo-400 mb-6 italic">Cifrari Polialfabetici</h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="space-y-4">
+                        <p class="text-slate-300 leading-relaxed">
+                            Introdotti da <strong>Leon Battista Alberti</strong> nel 1467 (considerato il padre della crittografia occidentale moderna) e perfezionati da <strong>Blaise de Vigenère</strong> nel 1553, questi cifrari usano più alfabeti di sostituzione che variano lettera per lettera seguendo una <strong>chiave ripetuta</strong>.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed">
+                            Il cifrario di Alberti usava un disco rotante con due anelli di lettere — la prima macchina crittografica della storia. Vigenère codificò il metodo in una tabella sistematica.
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                            <h4 class="text-xs font-bold text-slate-500 uppercase mb-2">Vantaggi & Svantaggi</h4>
+                            <ul class="text-sm text-slate-400 space-y-1">
+                                <li><span class="text-emerald-400">✓</span> Mascheramento delle frequenze: la stessa lettera è cifrata in modi diversi</li>
+                                <li><span class="text-emerald-400">✓</span> Resistenza all'analisi statistica semplice</li>
+                                <li><span class="text-rose-400">✗</span> Complessità manuale e rischio di errori</li>
+                                <li><span class="text-rose-400">✗</span> Se la chiave è corta o ripetitiva: attaccabile con il <strong>test di Kasiski</strong></li>
+                                <li><span class="text-rose-400">✗</span> Con il test dell'Indice di Coincidenza di Friedman si stima la lunghezza della chiave</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vigenère Square interattivo -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12">
+                <h2 class="text-3xl font-bold text-sky-400 mb-8 text-center italic tracking-tighter">Focus: Il Cifrario di Vigenère</h2>
+                
+                <div class="bg-slate-950/80 p-8 rounded-2xl border border-slate-800 mono text-sm overflow-x-auto mb-8">
+                    <div class="grid grid-cols-9 gap-2 text-center min-w-[500px]">
+                        <div class="text-slate-500 uppercase text-[10px]">Testo</div>
+                        <div class="text-white">R</div><div class="text-white">A</div><div class="text-white">P</div><div class="text-white">P</div><div class="text-white">O</div><div class="text-white">R</div><div class="text-white">T</div><div class="text-white">O</div>
+                        
+                        <div class="text-slate-500 uppercase text-[10px]">Chiave</div>
+                        <div class="text-indigo-400 font-bold">V</div><div class="text-indigo-400 font-bold">E</div><div class="text-indigo-400 font-bold">R</div><div class="text-indigo-400 font-bold">M</div><div class="text-indigo-400 font-bold">E</div><div class="text-indigo-400 font-bold">V</div><div class="text-indigo-400 font-bold">E</div><div class="text-indigo-400 font-bold">R</div>
+                        
+                        <div class="col-span-9 my-2 border-t border-slate-800"></div>
+
+                        <div class="text-slate-500 uppercase text-[10px]">Cifrato</div>
+                        <div class="text-sky-400 font-bold">M</div><div class="text-sky-400 font-bold">E</div><div class="text-sky-400 font-bold">G</div><div class="text-sky-400 font-bold">B</div><div class="text-sky-400 font-bold">S</div><div class="text-sky-400 font-bold">M</div><div class="text-sky-400 font-bold">X</div><div class="text-sky-400 font-bold">F</div>
+                    </div>
+                </div>
+                <p class="mb-8 text-sm text-slate-400 leading-relaxed text-center max-w-2xl mx-auto">
+                    Ogni lettera del testo viene spostata del valore della lettera chiave corrispondente (A=0, V=21, ecc.). Le due "P" di "RAPPORTO" sono cifrate diversamente ("G" e "B") — questo è il vantaggio polialfabetico.
+                </p>
+
+                <!-- Tabella di Vigenère (parziale) -->
+                <h3 class="text-xl font-bold text-white mb-4 italic text-center">La Tavola di Vigenère (prime 10 righe)</h3>
+                <div class="overflow-x-auto">
+                    <div id="vigTable" class="inline-block bg-slate-950/50 p-4 rounded-2xl border border-slate-800"></div>
+                </div>
+                <p class="text-xs text-slate-500 text-center mt-4 italic">
+                    Riga = lettera della chiave (A-J). Colonna = lettera del testo. Cella = lettera cifrata.
+                </p>
+            </section>
+
+            <!-- Kasiski Test -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12 border-t-4 border-t-rose-500">
+                <h2 class="text-3xl font-bold text-rose-400 mb-6 italic">Come si Viola: Il Test di Kasiski</h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            Friedrich Kasiski nel 1863 pubblicò il primo metodo sistematico per violare i cifrari polialfabetici. Il ragionamento è ingegnoso:
+                        </p>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            Se la chiave si ripete, <strong>le stesse sequenze di lettere nel testo chiaro</strong> cadranno periodicamente sotto le stesse posizioni della chiave, producendo <strong>le stesse sequenze nel testo cifrato</strong>.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed">
+                            La distanza tra queste ripetizioni nel testo cifrato è quasi certamente un multiplo della lunghezza della chiave. Il MCD (Massimo Comun Divisore) di più distanze rivela la lunghezza esatta.
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-slate-950/50 p-5 rounded-2xl border border-slate-800 mono text-xs">
+                            <div class="text-slate-500 mb-3 uppercase text-[10px]">Esempio semplificato</div>
+                            <div class="text-slate-400 mb-2">Testo cifrato:</div>
+                            <div class="text-white mb-1"><span class="text-amber-400 font-bold">XYZ</span>ABCDE<span class="text-amber-400 font-bold">XYZ</span>FGHIJ<span class="text-amber-400 font-bold">XYZ</span></div>
+                            <div class="text-slate-500 mt-3 mb-1">Posizioni di "XYZ": 0, 8, 16</div>
+                            <div class="text-slate-500 mb-1">Distanze: 8, 8</div>
+                            <div class="text-emerald-400 mt-2">MCD(8,8) = 8 → chiave lunga 8?</div>
+                            <div class="text-slate-600 text-[10px] mt-2 italic">Una volta nota la lunghezza, ogni sottosequenza è un semplice cifrario di Cesare!</div>
+                        </div>
+                        <div class="p-4 bg-rose-500/5 border border-rose-500/10 rounded-xl text-xs">
+                            <h5 class="text-rose-400 font-bold mb-1">Indice di Coincidenza (Friedman, 1922)</h5>
+                            <p class="text-slate-500">Misura quanto il testo cifrato assomiglia a un testo in lingua naturale. Per l'italiano IC ≈ 0.073, per un testo casuale IC ≈ 0.038. Confrontando le sottosequenze, si stima la lunghezza della chiave.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Eredità -->
+            <section class="glass-panel p-10 rounded-[2.5rem] text-center border-t-4 border-t-indigo-500 mb-12">
+                <h2 class="text-3xl font-bold text-white mb-6 italic tracking-tight">L'Eredità Storica</h2>
+                <p class="text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
+                    Sebbene più complessi, i sistemi polialfabetici sono stati usati fino alla Seconda Guerra Mondiale — la celebre macchina <strong>Enigma</strong> ne è un'evoluzione elettromeccanica. Il loro limite principale — la ripetitività della chiave — ha aperto la strada alla crittografia moderna, dimostrando che ogni progresso genera inevitabilmente nuovi tipi di attacco.
+                </p>
+                <div class="grid md:grid-cols-3 gap-4 text-xs text-center">
+                    <div class="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
+                        <div class="text-indigo-400 font-bold text-sm mb-1">~1467</div>
+                        <p class="text-slate-500">Alberti inventa il disco cifrante — primo strumento crittografico meccanico</p>
+                    </div>
+                    <div class="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
+                        <div class="text-sky-400 font-bold text-sm mb-1">1553</div>
+                        <p class="text-slate-500">Vigenère codifica il cifrario polialfabetico in forma tabellare sistematica</p>
+                    </div>
+                    <div class="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
+                        <div class="text-rose-400 font-bold text-sm mb-1">1863</div>
+                        <p class="text-slate-500">Kasiski pubblica il metodo per violarlo — fine della "cifra indecifrabile"</p>
+                    </div>
+                </div>
+            </section>
+
         </div>
     </main>
+
+    <footer class="py-12 border-t border-slate-900 text-center">
+        <div class="text-[10px] text-slate-600 uppercase tracking-[0.5em] font-bold">
+            Archivio Digitale — Fine Documentazione Sezione 02
+        </div>
+    </footer>
+
+    <script>
+        // Generate Vigenère table (10 rows x 26 cols)
+        const ALPHA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const container = document.getElementById('vigTable');
+        
+        // Header row
+        const headerDiv = document.createElement('div');
+        headerDiv.className = 'flex mb-1';
+        const corner = document.createElement('div');
+        corner.className = 'vig-cell text-slate-700';
+        corner.textContent = '↓\\→';
+        headerDiv.appendChild(corner);
+        for (let j = 0; j < 26; j++) {
+            const cell = document.createElement('div');
+            cell.className = 'vig-cell text-slate-600';
+            cell.textContent = ALPHA[j];
+            headerDiv.appendChild(cell);
+        }
+        container.appendChild(headerDiv);
+        
+        for (let i = 0; i < 10; i++) {
+            const row = document.createElement('div');
+            row.className = 'flex';
+            const label = document.createElement('div');
+            label.className = 'vig-cell text-indigo-400 font-bold';
+            label.textContent = ALPHA[i];
+            row.appendChild(label);
+            for (let j = 0; j < 26; j++) {
+                const cell = document.createElement('div');
+                const letter = ALPHA[(i + j) % 26];
+                const isHighlight = (i === 0 && j < 8) || (i < 10 && j === 0);
+                cell.className = `vig-cell ${i === 0 ? 'text-sky-400' : 'text-slate-500'}`;
+                cell.textContent = letter;
+                row.appendChild(cell);
+            }
+            container.appendChild(row);
+        }
+    </script>
 </body>
 </html>
