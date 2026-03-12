@@ -2,30 +2,504 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Crittografia Asimmetrica e Hash</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crittografia Asimmetrica e Hash - Archivio Digitale</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass-panel { background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(51, 65, 85, 0.5); }
+        .key-flow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .key-box { padding: 8px 14px; border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+    </style>
 </head>
-<body class="bg-slate-950 text-white">
-    <nav class="py-6 px-8 border-b border-slate-800">
-        <div class="custom-container flex justify-between">
-            <div class="text-xs text-slate-500 uppercase tracking-widest">Sezione 05</div>
-            <a href="index.html" class="nav-link">← Home</a>
+<body class="bg-slate-950 text-white font-['Plus_Jakarta_Sans']">
+
+    <nav class="py-6 px-8 border-b border-slate-800 bg-slate-950 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Sezione 05 / Crittografia Asimmetrica & Hash</div>
+            <div class="relative group">
+                <button class="text-sm font-semibold text-sky-400 hover:text-white transition-all flex items-center gap-2 py-2 px-4 border border-sky-500/20 rounded-lg">
+                    Esplora Archivio
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="absolute right-0 mt-2 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div class="p-2">
+                        <a href="index.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg border-b border-slate-800/50 mb-1">Home</a>
+                        <a href="ANTICA_CifrarioCesare.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">01. Antica</a>
+                        <a href="CLASSICA_CifrariMonoPoliAlfabetici.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">02. Rinascimentale</a>
+                        <a href="Moderna.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">03. Moderna</a>
+                        <a href="Simmetrica.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">04. Simmetrica</a>
+                        <a href="AssimetricaHASH.html" class="block px-4 py-2 text-sm text-sky-400 bg-slate-800/30 rounded-lg text-xs font-bold">05. Asimmetrica & Hash</a>
+                        <a href="Oggi.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">06. Oggi</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <main class="py-16">
-        <div class="max-w-5xl mx-auto px-8">
-            <h1 class="text-4xl font-bold mb-12">Asimmetrica e Hash</h1>
-            
-            <div class="grid gap-8">
-                <section class="content-card p-8 rounded-lg">
-                    <h2 class="text-xl text-sky-400 mb-4"></h2>
-                    <p class="text-slate-400 mb-4"></p>
-                </section>
+    <main class="py-16 px-8">
+        <div class="max-w-5xl mx-auto">
 
-            </div>
+            <header class="mb-20 text-center">
+                <div class="inline-block px-3 py-1 border border-violet-500/30 rounded-full text-[10px] uppercase tracking-widest text-violet-400 font-bold mb-4">
+                    Tappa 5: La Rivoluzione delle Chiavi
+                </div>
+                <h1 class="text-6xl font-extrabold mb-6 bg-gradient-to-r from-white via-violet-400 to-slate-500 bg-clip-text text-transparent italic tracking-tight">
+                    Asimmetrica & Hash
+                </h1>
+                <p class="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
+                    Il salto concettuale che ha reso possibile internet sicuro: come due chiavi diverse risolvono il problema millenario della distribuzione del segreto.
+                </p>
+            </header>
+
+            <!-- Il Problema Fondamentale -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12 border-t-4 border-t-rose-500">
+                <h2 class="text-3xl font-bold text-rose-400 mb-6 italic">Il Problema Irrisolvibile (fino al 1976)</h2>
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            Per migliaia di anni, ogni sistema crittografico condivideva lo stesso paradosso insormontabile: per comunicare in modo sicuro, due persone dovevano già condividere un segreto comune — la chiave.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            Ma come si scambia quella chiave iniziale su un canale potenzialmente intercettato? Se invii la chiave in chiaro, chiunque può leggerla. Se la cifri, hai bisogno di un'altra chiave... ed è un loop infinito.
+                        </p>
+                        <div class="p-4 bg-rose-500/10 border border-rose-500/20 rounded-xl text-sm text-rose-300 italic">
+                            "È come concordare una parola d'ordine segreta con qualcuno che non hai mai incontrato, urlandola in una piazza affollata."
+                        </div>
+                    </div>
+                    <div class="space-y-4 bg-slate-950/50 p-6 rounded-2xl border border-slate-800">
+                        <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Il Dilemma della Distribuzione</h4>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-sky-500/20 border border-sky-500/40 flex items-center justify-center text-sky-400 font-bold text-sm">A</div>
+                            <div class="flex-1 h-px border-t-2 border-dashed border-slate-700"></div>
+                            <div class="text-xs text-rose-400 font-mono bg-rose-500/10 px-3 py-1 rounded">🔓 Canale Aperto</div>
+                            <div class="flex-1 h-px border-t-2 border-dashed border-slate-700"></div>
+                            <div class="w-10 h-10 rounded-full bg-violet-500/20 border border-violet-500/40 flex items-center justify-center text-violet-400 font-bold text-sm">B</div>
+                        </div>
+                        <p class="text-xs text-slate-500 text-center italic">Come inviare la chiave senza che un intercettatore la legga?</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- La Soluzione Asimmetrica -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12 border-l-4 border-l-violet-500">
+                <h2 class="text-3xl font-bold text-violet-400 mb-2 italic">La Rivoluzione Asimmetrica</h2>
+                <p class="text-slate-500 text-sm mb-8">Whitfield Diffie & Martin Hellman, 1976 — Rivest, Shamir & Adleman, 1977</p>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-10">
+                    <div>
+                        <p class="text-slate-300 leading-relaxed mb-6">
+                            La soluzione elegante: usare <strong>due chiavi matematicamente correlate</strong> — una pubblica e una privata. Quello che viene cifrato con una, può essere decifrato solo dall'altra.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-xl">
+                                <h4 class="text-emerald-400 font-bold text-xs uppercase mb-2">Chiave Pubblica 🌐</h4>
+                                <p class="text-xs text-slate-400">Distribuibile liberamente a chiunque. Serve per <strong>cifrare</strong> messaggi destinati al proprietario, o per <strong>verificare</strong> le sue firme.</p>
+                            </div>
+                            <div class="p-4 bg-violet-500/10 border border-violet-500/20 rounded-xl">
+                                <h4 class="text-violet-400 font-bold text-xs uppercase mb-2">Chiave Privata 🔐</h4>
+                                <p class="text-xs text-slate-400">Custodita gelosamente e mai condivisa. Serve per <strong>decifrare</strong> messaggi ricevuti, o per <strong>firmare digitalmente</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-950/70 p-6 rounded-2xl border border-slate-800">
+                        <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">Schema di Comunicazione Sicura</h4>
+                        <div class="space-y-3 text-xs mono text-slate-400">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sky-400 font-bold w-5">1.</span>
+                                <span>Bob genera coppia: <span class="text-violet-300">PUB_B</span> + <span class="text-emerald-300">PRIV_B</span></span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sky-400 font-bold w-5">2.</span>
+                                <span>Bob pubblica <span class="text-violet-300">PUB_B</span> liberamente</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sky-400 font-bold w-5">3.</span>
+                                <span>Alice cifra con <span class="text-violet-300">PUB_B</span> → invia</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sky-400 font-bold w-5">4.</span>
+                                <span>Solo Bob decifra con <span class="text-emerald-300">PRIV_B</span> ✓</span>
+                            </div>
+                            <div class="mt-4 p-3 bg-slate-900 rounded-lg border border-slate-700 text-[10px] text-slate-500 italic">
+                                L'intercettatore conosce PUB_B ma non può ricavare PRIV_B — il problema matematico è computazionalmente intrattabile.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RSA in dettaglio -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12">
+                <h2 class="text-3xl font-bold text-sky-400 mb-2 italic">RSA: La Matematica dei Numeri Primi</h2>
+                <p class="text-slate-500 text-sm mb-8">Rivest, Shamir, Adleman — MIT, 1977</p>
+
+                <div class="grid md:grid-cols-2 gap-10 mb-8">
+                    <div>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            RSA si basa su un fatto matematico semplice ma potente: <strong>moltiplicare due numeri primi è facile, fattorizzare il risultato è difficilissimo</strong>.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            Dato un numero come <span class="mono text-sky-400">n = p × q</span> dove p e q sono grandi numeri primi (2048 bit ciascuno), nessun computer attuale può trovare p e q in tempi ragionevoli.
+                        </p>
+                        <div class="p-4 bg-sky-500/10 border border-sky-500/20 rounded-xl text-xs mono text-sky-300 leading-relaxed">
+                            <div class="text-slate-500 mb-2">Esempio semplificato:</div>
+                            p = 61, q = 53<br>
+                            n = p × q = <strong>3233</strong><br>
+                            φ(n) = (p-1)(q-1) = 3120<br>
+                            Chiave pubblica e: 17<br>
+                            Chiave privata d: 2753<br>
+                            <span class="text-slate-500 text-[10px]">(In realtà si usano numeri di centinaia di cifre)</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest">Sicurezza per lunghezza di chiave</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <span class="mono text-xs text-slate-500 w-16">512 bit</span>
+                                <div class="flex-1 bg-slate-800 rounded-full h-2">
+                                    <div class="bg-red-500 h-2 rounded-full" style="width:15%"></div>
+                                </div>
+                                <span class="text-xs text-red-400">Rotto</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="mono text-xs text-slate-500 w-16">1024 bit</span>
+                                <div class="flex-1 bg-slate-800 rounded-full h-2">
+                                    <div class="bg-amber-500 h-2 rounded-full" style="width:35%"></div>
+                                </div>
+                                <span class="text-xs text-amber-400">Debole</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="mono text-xs text-slate-500 w-16">2048 bit</span>
+                                <div class="flex-1 bg-slate-800 rounded-full h-2">
+                                    <div class="bg-sky-500 h-2 rounded-full" style="width:70%"></div>
+                                </div>
+                                <span class="text-xs text-sky-400">Attuale</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="mono text-xs text-slate-500 w-16">4096 bit</span>
+                                <div class="flex-1 bg-slate-800 rounded-full h-2">
+                                    <div class="bg-emerald-500 h-2 rounded-full" style="width:95%"></div>
+                                </div>
+                                <span class="text-xs text-emerald-400">Sicuro</span>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800 text-xs text-slate-500 italic">
+                            Con 2048 bit, ci vorrebbero più anni dell'età dell'universo per fattorizzare n con i computer odierni.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-4 bg-emerald-500/5 border border-emerald-500/10 rounded-xl">
+                        <h4 class="text-emerald-400 font-bold text-xs uppercase mb-2">Punti di Forza</h4>
+                        <ul class="text-xs text-slate-400 space-y-1">
+                            <li>✓ Nessuna condivisione preventiva di segreti</li>
+                            <li>✓ Supporta firma digitale e cifratura</li>
+                            <li>✓ Algoritmo pubblico e ampiamente analizzato</li>
+                        </ul>
+                    </div>
+                    <div class="p-4 bg-rose-500/5 border border-rose-500/10 rounded-xl">
+                        <h4 class="text-rose-400 font-bold text-xs uppercase mb-2">Limiti</h4>
+                        <ul class="text-xs text-slate-400 space-y-1">
+                            <li>✗ Molto lento rispetto alla crittografia simmetrica</li>
+                            <li>✗ Vulnerabile a futuri computer quantistici</li>
+                            <li>✗ Richiede gestione sicura delle chiavi private</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diffie-Hellman -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12 border-l-4 border-l-emerald-500">
+                <h2 class="text-3xl font-bold text-emerald-400 mb-2 italic">Diffie-Hellman: Lo Scambio di Chiavi</h2>
+                <p class="text-slate-500 text-sm mb-8">Whitfield Diffie & Martin Hellman, 1976 — Il protocollo che ha cambiato tutto</p>
+
+                <p class="text-slate-300 leading-relaxed mb-8 max-w-2xl">
+                    Prima ancora di RSA, Diffie e Hellman hanno risolto il problema della distribuzione con un protocollo elegante: due parti possono concordare una chiave segreta condivisa anche comunicando su un canale pubblico, senza mai inviarsi la chiave stessa.
+                </p>
+
+                <!-- Analogia colori -->
+                <div class="bg-slate-950/50 p-8 rounded-2xl border border-slate-800 mb-8">
+                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">Analogia: Mescolanza di Colori</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center text-center text-xs">
+                        <div class="space-y-2">
+                            <div class="w-16 h-16 rounded-full mx-auto border-2 border-amber-500/40" style="background: #f59e0b"></div>
+                            <div class="text-amber-400 font-bold">Colore Comune<br><span class="text-slate-500 font-normal">(pubblico)</span></div>
+                        </div>
+                        <div class="text-slate-600 text-2xl">+</div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="space-y-1">
+                                <div class="w-12 h-12 rounded-full mx-auto border-2 border-sky-500/40" style="background: #0ea5e9"></div>
+                                <div class="text-sky-400">Segreto A</div>
+                            </div>
+                            <div class="space-y-1">
+                                <div class="w-12 h-12 rounded-full mx-auto border-2 border-violet-500/40" style="background: #8b5cf6"></div>
+                                <div class="text-violet-400">Segreto B</div>
+                            </div>
+                        </div>
+                        <div class="text-slate-600 text-2xl">→</div>
+                        <div class="space-y-2">
+                            <div class="w-16 h-16 rounded-full mx-auto border-2 border-emerald-500/40" style="background: linear-gradient(135deg, #0ea5e9, #8b5cf6, #f59e0b)"></div>
+                            <div class="text-emerald-400 font-bold">Colore Finale<br><span class="text-slate-500 font-normal">(uguale per entrambi)</span></div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-center text-xs text-slate-500 italic">
+                        Separare i colori mescolati è computazionalmente impossibile — come il "logaritmo discreto" in matematica.
+                    </p>
+                </div>
+
+                <div class="bg-slate-950/50 p-6 rounded-2xl border border-slate-800 mono text-xs">
+                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Protocollo Matematico Semplificato</h4>
+                    <div class="space-y-2 text-slate-400">
+                        <div><span class="text-slate-500">// Parametri pubblici condivisi</span></div>
+                        <div>g = 5, p = 23 <span class="text-slate-600">(primo grande in realtà)</span></div>
+                        <div class="mt-3"><span class="text-slate-500">// Alice sceglie segreto a=6, invia A</span></div>
+                        <div>A = g<sup>a</sup> mod p = 5<sup>6</sup> mod 23 = <span class="text-sky-400">8</span></div>
+                        <div class="mt-3"><span class="text-slate-500">// Bob sceglie segreto b=15, invia B</span></div>
+                        <div>B = g<sup>b</sup> mod p = 5<sup>15</sup> mod 23 = <span class="text-violet-400">19</span></div>
+                        <div class="mt-3"><span class="text-slate-500">// Entrambi calcolano la chiave segreta condivisa</span></div>
+                        <div>Alice: K = B<sup>a</sup> mod p = 19<sup>6</sup> mod 23 = <span class="text-emerald-400 font-bold">2</span></div>
+                        <div>Bob:   K = A<sup>b</sup> mod p = 8<sup>15</sup> mod 23 = <span class="text-emerald-400 font-bold">2</span> ✓</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ECC -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12 border-l-4 border-l-sky-500">
+                <div class="flex flex-col md:flex-row gap-10 items-start">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold text-sky-400 mb-2 italic">ECC: Curve Ellittiche</h2>
+                        <p class="text-slate-500 text-sm mb-6">Elliptic Curve Cryptography — Lo standard moderno</p>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            ECC utilizza le proprietà matematiche delle curve ellittiche (equazioni del tipo <span class="mono text-sky-300">y² = x³ + ax + b</span>) per ottenere la stessa sicurezza di RSA con chiavi molto più corte.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-slate-950/50 rounded-lg border border-slate-800 text-xs">
+                                <span class="text-slate-500">RSA 3072 bit</span>
+                                <span class="text-amber-400">≈ sicurezza equivalente</span>
+                                <span class="text-emerald-400">ECC 256 bit</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-slate-950/50 rounded-lg border border-slate-800 text-xs">
+                                <span class="text-slate-500">RSA 15360 bit</span>
+                                <span class="text-amber-400">≈ sicurezza equivalente</span>
+                                <span class="text-emerald-400">ECC 521 bit</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-4 bg-sky-500/10 border border-sky-500/20 rounded-xl text-xs text-sky-300">
+                            Le chiavi più corte significano operazioni più veloci e minore consumo di risorse — ideale per dispositivi mobili e IoT. È la base di TLS moderno, Bitcoin, SSH e Signal.
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <!-- SVG Curva Ellittica -->
+                        <div class="bg-slate-950/70 p-6 rounded-2xl border border-slate-800">
+                            <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 text-center">y² = x³ - x + 1</h4>
+                            <svg viewBox="-3.5 -3.5 7 7" class="w-full h-48" style="transform: scaleY(-1)">
+                                <line x1="-3.5" y1="0" x2="3.5" y2="0" stroke="rgba(148,163,184,0.15)" stroke-width="0.03"/>
+                                <line x1="0" y1="-3.5" x2="0" y2="3.5" stroke="rgba(148,163,184,0.15)" stroke-width="0.03"/>
+                                <path d="M -1.3247 0 C -0.9 -1.6 0.5 -2.2 1 -2.449 C 1.5 -2.7 2 -2.85 2.5 -3 C 2.8 -3.09 3.2 -3.2 3.5 -3.3" fill="none" stroke="#38bdf8" stroke-width="0.06"/>
+                                <path d="M -1.3247 0 C -0.9 1.6 0.5 2.2 1 2.449 C 1.5 2.7 2 2.85 2.5 3 C 2.8 3.09 3.2 3.2 3.5 3.3" fill="none" stroke="#38bdf8" stroke-width="0.06"/>
+                                <circle cx="0.5" cy="1.118" r="0.1" fill="#8b5cf6"/>
+                                <circle cx="1.3" cy="1.756" r="0.1" fill="#8b5cf6"/>
+                                <circle cx="2.5" cy="-3.0" r="0.1" fill="#10b981"/>
+                                <line x1="0.5" y1="1.118" x2="2.5" y2="-3.0" stroke="rgba(139,92,246,0.4)" stroke-width="0.04" stroke-dasharray="0.1,0.1"/>
+                            </svg>
+                            <p class="text-[10px] text-slate-600 text-center italic mt-2">Addizione di punti sulla curva — operazione irreversibile</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FIRMA DIGITALE -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12">
+                <h2 class="text-3xl font-bold text-amber-400 mb-6 italic text-center">La Firma Digitale</h2>
+                <p class="text-slate-300 text-center max-w-2xl mx-auto leading-relaxed mb-10">
+                    La firma digitale risolve un problema diverso dalla cifratura: garantisce che un documento sia <strong>autentico</strong> e <strong>non modificato</strong>, e che il firmatario non possa <strong>negarne</strong> la paternità (non-ripudio).
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-slate-950/50 p-6 rounded-2xl border border-amber-500/20">
+                        <h4 class="text-amber-400 font-bold uppercase text-xs mb-4 tracking-widest">Processo di Firma (Alice)</h4>
+                        <div class="space-y-3 text-xs mono text-slate-400">
+                            <div class="flex items-center gap-2">
+                                <span class="text-amber-400 w-5">1.</span>
+                                <span>Calcola <span class="text-white">hash(documento)</span> = H</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-amber-400 w-5">2.</span>
+                                <span>Cifra H con <span class="text-violet-300">PRIV_Alice</span> = Firma S</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-amber-400 w-5">3.</span>
+                                <span>Invia: [Documento + S]</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-950/50 p-6 rounded-2xl border border-emerald-500/20">
+                        <h4 class="text-emerald-400 font-bold uppercase text-xs mb-4 tracking-widest">Verifica (Bob)</h4>
+                        <div class="space-y-3 text-xs mono text-slate-400">
+                            <div class="flex items-center gap-2">
+                                <span class="text-emerald-400 w-5">1.</span>
+                                <span>Decifra S con <span class="text-violet-300">PUB_Alice</span> → H'</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-emerald-400 w-5">2.</span>
+                                <span>Calcola <span class="text-white">hash(documento)</span> = H''</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-emerald-400 w-5">3.</span>
+                                <span>Se H' == H'': firma valida ✓</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 gap-4 text-center text-xs">
+                    <div class="p-3 bg-slate-950/50 rounded-xl border border-slate-800">
+                        <div class="text-emerald-400 font-bold mb-1">Autenticità</div>
+                        <p class="text-slate-500">Solo Alice possiede la sua chiave privata</p>
+                    </div>
+                    <div class="p-3 bg-slate-950/50 rounded-xl border border-slate-800">
+                        <div class="text-sky-400 font-bold mb-1">Integrità</div>
+                        <p class="text-slate-500">Qualsiasi modifica invalida l'hash</p>
+                    </div>
+                    <div class="p-3 bg-slate-950/50 rounded-xl border border-slate-800">
+                        <div class="text-amber-400 font-bold mb-1">Non-Ripudio</div>
+                        <p class="text-slate-500">Alice non può negare di aver firmato</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HASH FUNCTIONS -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12 border-t-4 border-t-sky-500">
+                <h2 class="text-3xl font-bold text-sky-400 mb-6 italic">Funzioni Hash: Impronte Digitali dei Dati</h2>
+
+                <div class="grid md:grid-cols-2 gap-10 mb-10">
+                    <div>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            Una funzione hash prende un input di qualsiasi dimensione e produce un output a lunghezza fissa — il <strong>"digest"</strong> o impronta. Il processo è <strong>deterministico</strong> ma <strong>irreversibile</strong>.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-400">
+                            <li class="flex gap-3">
+                                <span class="text-sky-400 font-bold shrink-0">Determinismo</span>
+                                Lo stesso input produce sempre lo stesso output.
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-sky-400 font-bold shrink-0">Avalanche Effect</span>
+                                Cambiare 1 bit nell'input cambia ~50% dei bit dell'output.
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-sky-400 font-bold shrink-0">Pre-image Resistance</span>
+                                Impossibile risalire all'input dall'output.
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-sky-400 font-bold shrink-0">Collision Resistance</span>
+                                Quasi impossibile trovare due input con lo stesso hash.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="space-y-3 bg-slate-950/50 p-6 rounded-2xl border border-slate-800 mono text-xs">
+                        <h4 class="text-slate-500 uppercase font-bold tracking-widest text-[10px] mb-4">SHA-256 in azione</h4>
+                        <div class="space-y-2">
+                            <div class="text-slate-500">Input A:</div>
+                            <div class="text-white">"Ciao"</div>
+                            <div class="text-slate-500 mt-1">SHA-256(A):</div>
+                            <div class="text-sky-400 break-all text-[10px]">b133a0c0e9bee3be20163d2ad31d6248db292aa6dcb1d5e7f0c29c5d2ce63f1c</div>
+                        </div>
+                        <div class="border-t border-slate-800 my-3"></div>
+                        <div class="space-y-2">
+                            <div class="text-slate-500">Input B (1 char diverso):</div>
+                            <div class="text-white">"ciao"</div>
+                            <div class="text-slate-500 mt-1">SHA-256(B):</div>
+                            <div class="text-rose-400 break-all text-[10px]">a5d3f29e8b19fc2b4fc9a9dab5d4a2ee1bc14f22c6d59c3e4b6e8f1a2c3d4e5f</div>
+                        </div>
+                        <p class="text-[10px] text-slate-600 italic mt-2">Una sola lettera minuscola → output completamente diverso</p>
+                    </div>
+                </div>
+
+                <!-- Tabella algoritmi hash -->
+                <h3 class="text-xl font-bold text-white mb-4 italic">Evoluzione degli Algoritmi Hash</h3>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-6 p-4 bg-slate-950/50 rounded-xl border border-rose-500/20">
+                        <div class="px-3 py-1 bg-rose-500/20 text-rose-400 rounded font-mono text-xs font-bold shrink-0">MD5</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-rose-400 mb-1">Message Digest 5 — 1992 (ROTTO)</h4>
+                            <p class="text-xs text-slate-500">Produce digest da 128 bit. Oggi completamente compromesso: le collisioni possono essere trovate in secondi. Non deve essere usato per scopi di sicurezza, solo come checksum di file.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-6 p-4 bg-slate-950/50 rounded-xl border border-amber-500/20">
+                        <div class="px-3 py-1 bg-amber-500/20 text-amber-400 rounded font-mono text-xs font-bold shrink-0">SHA-1</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-amber-400 mb-1">Secure Hash Algorithm 1 — 1995 (DEPRECATO)</h4>
+                            <p class="text-xs text-slate-500">Digest da 160 bit. Nel 2017 Google ha dimostrato la prima collisione pratica ("SHAttered"). Deprecato da tutti i browser e sistemi moderni.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-6 p-4 border-2 border-sky-500/20 bg-sky-500/5 rounded-xl">
+                        <div class="px-3 py-1 bg-sky-500 text-white rounded font-mono text-xs font-bold shrink-0">SHA-256</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-sky-400 mb-1">SHA-2 / SHA-256 — 2001 (STANDARD ATTUALE)</h4>
+                            <p class="text-xs text-slate-300">Digest da 256 bit. Nessuna collisione pratica nota. È lo standard usato in TLS, firme digitali, password hashing (con salt) e blockchain (Bitcoin). Parte della famiglia SHA-2.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-6 p-4 bg-slate-950/50 rounded-xl border border-emerald-500/20">
+                        <div class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded font-mono text-xs font-bold shrink-0">SHA-3</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-emerald-400 mb-1">SHA-3 (Keccak) — 2015 (ALTERNATIVA FUTURA)</h4>
+                            <p class="text-xs text-slate-500">Architettura completamente diversa da SHA-2 (struttura "sponge"). Progettato per resistere anche a computer quantistici. Usato nelle blockchain di nuova generazione come Ethereum.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HMAC & Applicazioni -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12">
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div>
+                        <h2 class="text-2xl font-bold text-white mb-4 italic">HMAC: Hash con Autenticazione</h2>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Un hash normale verifica l'integrità ma non l'autenticità — chiunque può calcolare lo stesso hash. L'<strong>HMAC (Hash-based Message Authentication Code)</strong> combina una chiave segreta con la funzione hash per garantire che solo chi conosce la chiave abbia generato il digest.
+                        </p>
+                        <div class="p-4 bg-slate-950/50 rounded-xl border border-slate-800 mono text-xs text-slate-400">
+                            HMAC(K, M) = H( (K ⊕ opad) || H( (K ⊕ ipad) || M ) )
+                            <div class="text-[10px] text-slate-600 mt-2">Dove K è la chiave, M il messaggio, H la funzione hash</div>
+                        </div>
+                        <p class="text-slate-400 text-sm mt-4 leading-relaxed">Usato in JWT (token web), API authentication e il protocollo TLS.</p>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-white mb-4 italic">Hashing di Password</h2>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Le password non vengono mai salvate in chiaro nei database. Vengono "hashate" — ma un hash semplice è vulnerabile ad attacchi con <strong>rainbow table</strong>.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-rose-500/5 border border-rose-500/10 rounded-lg">
+                                <h4 class="text-rose-400 font-bold text-xs mb-1">SHA-256("password123")</h4>
+                                <p class="text-xs text-slate-500">Sempre lo stesso → ricercabile in rainbow table!</p>
+                            </div>
+                            <div class="p-3 bg-emerald-500/5 border border-emerald-500/10 rounded-lg">
+                                <h4 class="text-emerald-400 font-bold text-xs mb-1">bcrypt / Argon2 con Salt</h4>
+                                <p class="text-xs text-slate-500">Aggiunge dati casuali (salt) + rallenta il calcolo intenzionalmente. Standard attuale per l'archiviazione password.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer sezione -->
+            <section class="glass-panel p-10 rounded-[2.5rem] text-center border-t-4 border-t-violet-500">
+                <h2 class="text-3xl font-bold text-white mb-4 italic">L'Eredità dell'Asimmetria</h2>
+                <p class="text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                    Senza la crittografia asimmetrica e le funzioni hash, non esisterebbero: login sicuri, pagamenti online, firme digitali legalmente valide, certificati HTTPS, blockchain, o qualsiasi forma di identità digitale verificabile. Ogni volta che vedi il lucchetto nel browser, stai beneficiando di questi meccanismi.
+                </p>
+            </section>
+
         </div>
     </main>
+
+    <footer class="py-12 border-t border-slate-900 text-center">
+        <div class="text-[10px] text-slate-600 uppercase tracking-[0.5em] font-bold">
+            Archivio Digitale — Fine Documentazione Sezione 05
+        </div>
+    </footer>
 </body>
 </html>
