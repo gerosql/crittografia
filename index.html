@@ -4,105 +4,161 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evoluzione della Crittografia: Un Percorso Storico</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Collegamento al file CSS esterno -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+        .glass-panel-solid {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+        .glass-panel-solid:hover {
+            background: rgba(36, 49, 70, 0.9);
+            border-color: rgba(71, 85, 105, 0.8);
+            transform: translateY(-3px);
+        }
+        .glass-panel-solid { transition: all 0.4s ease; }
+        .step-number { font-family: 'JetBrains Mono', monospace; }
+        input[type=range]::-webkit-slider-thumb {
+            background: #38bdf8; border: none;
+            width: 18px; height: 18px;
+            border-radius: 50%; cursor: pointer;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-slate-950 text-white min-h-screen">
 
-    <!-- Barra di Navigazione Superiore -->
-    <nav class="py-6 px-8 border-b border-slate-800 bg-slate-950">
-        <div class="custom-container flex justify-between items-center">
-            <div class="text-xs tracking-widest uppercase text-slate-500 font-semibold">
+    <!-- Nav Sticky con Dropdown -->
+    <nav class="py-6 px-8 border-b border-slate-800 bg-slate-950 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div class="text-xs text-slate-500 uppercase tracking-widest font-semibold mono">
                 Archivio Crittografico 2026
             </div>
-            <div>
-                <a href="about.html" class="text-sm font-semibold text-slate-300 hover:text-sky-400 transition-colors duration-300 flex items-center gap-2">
-                    <span class="w-2 h-2 bg-sky-500 rounded-full"></span>
-                    About Us
-                </a>
+            <div class="relative group">
+                <button class="text-sm font-semibold text-sky-400 hover:text-white transition-all flex items-center gap-2 py-2 px-4 border border-sky-500/20 rounded-lg">
+                    Esplora Archivio
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="absolute right-0 mt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2">
+                        <a href="index.html"    class="block px-4 py-2 text-sky-400 bg-slate-800/30 rounded-lg text-xs font-bold">Home</a>
+                        <a href="ANTICA_CifrarioCesare.html"              class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">01. Antica</a>
+                        <a href="CLASSICA_CifrariMonoPoliAlfabetici.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">02. Rinascimentale</a>
+                        <a href="Moderna.html"      class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">03. XX Secolo</a>
+                        <a href="Simmetrica.html"   class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">04. Digitale Simmetrica</a>
+                        <a href="AssimetricaHASH.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">05. Asimmetrica & Hash</a>
+                        <a href="Oggi.html"         class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">06. Oggi</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Intestazione Principale -->
-    <header class="main-header py-24 px-8">
-        <div class="custom-container">
-            <h1 class="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">
-                Sistemi di Cifratura e Difesa del Dato
+    <header class="py-24 px-8 text-center">
+        <div class="max-w-5xl mx-auto">
+            <div class="inline-block px-3 py-1 border border-sky-500/30 rounded-full text-[10px] uppercase tracking-widest text-sky-400 font-bold mb-6">
+                Archivio Storico — Sei Sezioni
+            </div>
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-white via-sky-400 to-slate-500 bg-clip-text text-transparent italic tracking-tight">
+                Sistemi di Cifratura<br>e Difesa del Dato
             </h1>
-            <p class="text-lg text-slate-400 max-w-2xl font-light">
+            <p class="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed font-light">
                 Dall'ingegno tattico dell'antichità classica alla complessità computazionale dei protocolli contemporanei. Un'analisi strutturata in sei tappe fondamentali.
             </p>
         </div>
     </header>
 
     <!-- Griglia dei Contenuti -->
-    <main class="py-20 px-8">
-        <div class="custom-container">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
+    <main class="pb-24 px-8">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
                 <!-- TAPPA 1 -->
-                <article class="content-card p-8 rounded-lg flex flex-col">
-                    <span class="step-number">Sezione 01</span>
-                    <h2 class="text-xl font-bold mb-4 text-white">Crittografia antica: il cifrario di Cesare</h2>
-                    <p class="text-slate-400 text-sm mb-8">
+                <article class="glass-panel-solid p-8 rounded-[2rem] flex flex-col">
+                    <span class="step-number text-sky-400 text-xs uppercase tracking-widest font-bold mono mb-3 block">Sezione 01</span>
+                    <h2 class="text-lg font-bold mb-3 text-white italic leading-snug">Crittografia antica: il cifrario di Cesare</h2>
+                    <p class="text-slate-400 text-sm mb-8 leading-relaxed flex-1">
                         Analisi dei primi sistemi a sostituzione utilizzati in ambito militare, con particolare attenzione ai limiti strutturali della crittografia monoalfabetica.
                     </p>
-                    <a href="ANTICA_CifrarioCesare.html" class="nav-link">Approfondisci</a>
+                    <a href="ANTICA_CifrarioCesare.html" class="relative inline-flex items-center text-sky-400 text-sm font-semibold group mt-auto">
+                        Approfondisci
+                        <span class="absolute bottom-[-2px] left-0 w-0 h-[1px] bg-sky-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
                 </article>
 
                 <!-- TAPPA 2 -->
-                <article class="content-card p-8 rounded-lg flex flex-col">
-                    <span class="step-number">Sezione 02</span>
-                    <h2 class="text-xl font-bold mb-4 text-white">Crittografia classica: cifrari mono e polialfabetici</h2>
-                    <p class="text-slate-400 text-sm mb-8">
+                <article class="glass-panel-solid p-8 rounded-[2rem] flex flex-col">
+                    <span class="step-number text-sky-400 text-xs uppercase tracking-widest font-bold mono mb-3 block">Sezione 02</span>
+                    <h2 class="text-lg font-bold mb-3 text-white italic leading-snug">Crittografia classica: cifrari mono e polialfabetici</h2>
+                    <p class="text-slate-400 text-sm mb-8 leading-relaxed flex-1">
                         L'evoluzione delle tecniche nel tardo Medioevo e nel Rinascimento. Studio del metodo di Vigenère e l'introduzione della frequenza statistica.
                     </p>
-                    <a href="CLASSICA_CifrariMonoPoliAlfabetici.html" class="nav-link">Approfondisci</a>
+                    <a href="CLASSICA_CifrariMonoPoliAlfabetici.html" class="relative inline-flex items-center text-sky-400 text-sm font-semibold group mt-auto">
+                        Approfondisci
+                        <span class="absolute bottom-[-2px] left-0 w-0 h-[1px] bg-sky-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
                 </article>
 
                 <!-- TAPPA 3 -->
-                <article class="content-card p-8 rounded-lg flex flex-col">
-                    <span class="step-number">Sezione 03</span>
-                    <h2 class="text-xl font-bold mb-4 text-white">Nascita della crittografia moderna</h2>
-                    <p class="text-slate-400 text-sm mb-8">
+                <article class="glass-panel-solid p-8 rounded-[2rem] flex flex-col">
+                    <span class="step-number text-sky-400 text-xs uppercase tracking-widest font-bold mono mb-3 block">Sezione 03</span>
+                    <h2 class="text-lg font-bold mb-3 text-white italic leading-snug">Nascita della crittografia moderna</h2>
+                    <p class="text-slate-400 text-sm mb-8 leading-relaxed flex-1">
                         Il passaggio dai metodi manuali a quelli meccanici. La rivoluzione delle macchine a rotori e il contributo fondamentale di Alan Turing.
                     </p>
-                    <a href="Moderna.html" class="nav-link">Approfondisci</a>
+                    <a href="Moderna.html" class="relative inline-flex items-center text-sky-400 text-sm font-semibold group mt-auto">
+                        Approfondisci
+                        <span class="absolute bottom-[-2px] left-0 w-0 h-[1px] bg-sky-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
                 </article>
 
                 <!-- TAPPA 4 -->
-                <article class="content-card p-8 rounded-lg flex flex-col">
-                    <span class="step-number">Sezione 04</span>
-                    <h2 class="text-xl font-bold mb-4 text-white">Crittografia simmetrica moderna</h2>
-                    <p class="text-slate-400 text-sm mb-8">
+                <article class="glass-panel-solid p-8 rounded-[2rem] flex flex-col">
+                    <span class="step-number text-sky-400 text-xs uppercase tracking-widest font-bold mono mb-3 block">Sezione 04</span>
+                    <h2 class="text-lg font-bold mb-3 text-white italic leading-snug">Crittografia simmetrica moderna</h2>
+                    <p class="text-slate-400 text-sm mb-8 leading-relaxed flex-1">
                         Lo standard AES e gli algoritmi a chiave segreta. Come la computazione digitale ha trasformato la gestione della riservatezza dei dati.
                     </p>
-                    <a href="Simmetrica.html" class="nav-link">Approfondisci</a>
+                    <a href="Simmetrica.html" class="relative inline-flex items-center text-sky-400 text-sm font-semibold group mt-auto">
+                        Approfondisci
+                        <span class="absolute bottom-[-2px] left-0 w-0 h-[1px] bg-sky-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
                 </article>
 
                 <!-- TAPPA 5 -->
-                <article class="content-card p-8 rounded-lg flex flex-col">
-                    <span class="step-number">Sezione 05</span>
-                    <h2 class="text-xl font-bold mb-4 text-white">Crittografia asimmetrica e hash</h2>
-                    <p class="text-slate-400 text-sm mb-8">
+                <article class="glass-panel-solid p-8 rounded-[2rem] flex flex-col">
+                    <span class="step-number text-sky-400 text-xs uppercase tracking-widest font-bold mono mb-3 block">Sezione 05</span>
+                    <h2 class="text-lg font-bold mb-3 text-white italic leading-snug">Crittografia asimmetrica e hash</h2>
+                    <p class="text-slate-400 text-sm mb-8 leading-relaxed flex-1">
                         Il paradigma della chiave pubblica e privata. Fondamenti matematici della firma elettronica e garanzia dell'integrità del messaggio.
                     </p>
-                    <a href="AssimetricaHASH.html" class="nav-link">Approfondisci</a>
+                    <a href="AssimetricaHASH.html" class="relative inline-flex items-center text-sky-400 text-sm font-semibold group mt-auto">
+                        Approfondisci
+                        <span class="absolute bottom-[-2px] left-0 w-0 h-[1px] bg-sky-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
                 </article>
 
                 <!-- TAPPA 6 -->
-                <article class="content-card p-8 rounded-lg flex flex-col border-dashed">
-                    <span class="step-number">Sezione 06</span>
-                    <h2 class="text-xl font-bold mb-4 text-white">Crittografia oggi: protocolli e legalità</h2>
-                    <p class="text-slate-400 text-sm mb-8">
+                <article class="glass-panel-solid p-8 rounded-[2rem] flex flex-col" style="border-style: dashed;">
+                    <span class="step-number text-sky-400 text-xs uppercase tracking-widest font-bold mono mb-3 block">Sezione 06</span>
+                    <h2 class="text-lg font-bold mb-3 text-white italic leading-snug">Crittografia oggi: protocolli e legalità</h2>
+                    <p class="text-slate-400 text-sm mb-8 leading-relaxed flex-1">
                         Applicazioni pratiche nel web moderno: HTTPS, TLS e l'impatto delle normative sulla privacy nella società dell'informazione.
                     </p>
-                    <a href="Oggi.html" class="nav-link">Approfondisci</a>
+                    <a href="Oggi.html" class="relative inline-flex items-center text-sky-400 text-sm font-semibold group mt-auto">
+                        Approfondisci
+                        <span class="absolute bottom-[-2px] left-0 w-0 h-[1px] bg-sky-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
                 </article>
 
             </div>
@@ -110,10 +166,10 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-16 border-t border-slate-800">
-        <div class="custom-container px-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs tracking-widest uppercase">
+    <footer class="py-12 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs tracking-widest uppercase mono">
             <p>© 2026 Progetto Crittografia</p>
-            <div class="mt-4 md:mt-0 space-x-6">
+            <div class="mt-4 md:mt-0">
                 <span>Riservato ad uso didattico</span>
             </div>
         </div>
