@@ -7,22 +7,69 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .card-stack {
+            perspective: 1200px;
+            height: 550px;
+            position: relative;
+        }
+        .member-card {
+            position: absolute;
+            width: 100%;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            opacity: 0;
+            transform: scale(0.7) translateY(100px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .member-card.active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            pointer-events: auto;
+            z-index: 20;
+        }
+        .member-card.prev {
+            opacity: 0.3;
+            transform: scale(0.85) translateX(-200px) rotate(-8deg);
+            z-index: 10;
+        }
+        .member-card.next {
+            opacity: 0.3;
+            transform: scale(0.85) translateX(200px) rotate(8deg);
+            z-index: 10;
+        }
+    </style>
 </head>
 <body class="bg-slate-950 text-white font-['Plus_Jakarta_Sans']">
     
-    <nav class="py-6 px-8 border-b border-slate-800 bg-slate-950">
-        <div class="custom-container flex justify-between items-center">
+    <nav class="py-6 px-8 border-b border-slate-800 bg-slate-950 relative z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="text-xs tracking-widest uppercase text-slate-500 font-semibold">Archivio Crittografico 2026</div>
-            <a href="index.html" class="text-sm font-semibold text-sky-400 hover:text-white transition-all flex items-center gap-2">
-                ← Torna alla Home
-            </a>
+            <div class="relative group">
+                <button class="text-sm font-semibold text-sky-400 hover:text-white transition-all flex items-center gap-2 py-2 px-4 border border-sky-500/20 rounded-lg">
+                    Esplora Archivio
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="absolute right-0 mt-2 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div class="p-2">
+                        <a href="index.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg border-b border-slate-800/50 mb-1">Home</a>
+                        <a href="ANTICA_CifrarioCesare.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">01. Antica</a>
+                        <a href="CLASSICA_CifrariMonoPoliAlfabetici.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">02. Rinascimentale</a>
+                        <a href="Moderna.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">03. Moderna</a>
+                        <a href="Simmetrica.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">04. Simmetrica</a>
+                        <a href="AssimetricaHASH.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">05. Asimmetrica & Hash</a>
+                        <a href="Oggi.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">06. Oggi </a>
+                        <a href="about.html" class="block px-4 py-2 text-sm text-sky-400 bg-slate-800/30 rounded-lg text-xs font-bold mt-1">Chi Siamo</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
     <main class="py-16 px-8">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-5xl mx-auto">
             
-            <div class="text-center mb-24">
+            <div class="text-center mb-16">
                 <h1 class="text-6xl font-bold mb-10 bg-gradient-to-r from-white to-slate-500 bg-clip-text text-transparent">
                     Chi siamo?
                 </h1>
@@ -31,52 +78,69 @@
                 </div>
             </div>
 
-            <div class="space-y-10">
-                <h2 class="text-base uppercase tracking-[0.3em] text-sky-500 font-bold mb-8 border-b border-sky-500/20 pb-4">
-                    I Membri del Team
-                </h2>
+            <h2 class="text-base uppercase tracking-[0.3em] text-sky-500 font-bold mb-12 border-b border-sky-500/20 pb-4 text-center">
+                I Membri del Team
+            </h2>
 
-                <div class="flex items-center gap-10 p-6 rounded-2xl hover:bg-slate-900/60 transition-all border border-transparent hover:border-slate-800 group">
-                    <div class="w-32 h-32 flex-shrink-0">
-                        <img src="images/Scode.jpeg" alt="Scode" class="w-full h-full object-cover rounded-2xl border-2 border-slate-700 group-hover:border-sky-500 transition-colors">
+            <div class="relative flex items-center justify-center">
+                <button onclick="changeCard(-1)" class="absolute left-[-100px] z-50 p-4 rounded-full border border-slate-800 bg-slate-900/50 hover:bg-sky-500/20 hover:border-sky-500/50 transition-all group">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-400 group-hover:text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+
+                <div class="card-stack w-full max-w-3xl" id="cardStack">
+                    
+                    <div class="member-card active">
+                        <div class="bg-slate-900/90 border border-slate-800 p-12 rounded-[3rem] flex items-center gap-12 shadow-[0_0_50px_-12px_rgba(56,189,248,0.3)] backdrop-blur-md">
+                            <img src="images/Scode.jpeg" alt="Scode" class="w-56 h-56 object-cover rounded-3xl border-2 border-sky-500/40">
+                            <div>
+                                <h3 class="text-5xl font-bold text-white mb-4">Tommaso Scodellaro</h3>
+                                <p class="text-sky-400 text-2xl font-mono uppercase tracking-widest font-bold">Capitano</p>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-3xl font-bold text-white mb-2">Tommaso Scodellaro</h3>
-                        <p class="text-slate-400 text-lg italic"> Capitano</p>
+
+                    <div class="member-card">
+                        <div class="bg-slate-900/90 border border-slate-800 p-12 rounded-[3rem] flex items-center gap-12 shadow-[0_0_50px_-12px_rgba(56,189,248,0.3)] backdrop-blur-md">
+                            <img src="images/Squello.jpeg" alt="Squello" class="w-56 h-56 object-cover rounded-3xl border-2 border-sky-500/40">
+                            <div>
+                                <h3 class="text-5xl font-bold text-white mb-4">Geronimo Squellati</h3>
+                                <p class="text-sky-400 text-2xl font-mono uppercase tracking-widest font-bold">Navigatore</p>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="member-card">
+                        <div class="bg-slate-900/90 border border-slate-800 p-12 rounded-[3rem] flex items-center gap-12 shadow-[0_0_50px_-12px_rgba(56,189,248,0.3)] backdrop-blur-md">
+                            <img src="images/Tony.jpeg" alt="Tony" class="w-56 h-56 object-cover rounded-3xl border-2 border-sky-500/40">
+                            <div>
+                                <h3 class="text-5xl font-bold text-white mb-4">Brian Toniazzo</h3>
+                                <p class="text-sky-400 text-2xl font-mono uppercase tracking-widest font-bold">Medico</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="bg-slate-900/90 border border-slate-800 p-12 rounded-[3rem] flex items-center gap-12 shadow-[0_0_50px_-12px_rgba(56,189,248,0.3)] backdrop-blur-md">
+                            <img src="images/Calde.jpeg" alt="Calde" class="w-56 h-56 object-cover rounded-3xl border-2 border-sky-500/40">
+                            <div>
+                                <h3 class="text-5xl font-bold text-white mb-4">Michael Segovia Calderon</h3>
+                                <p class="text-sky-400 text-2xl font-mono uppercase tracking-widest font-bold">Cecchino</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="flex items-center gap-10 p-6 rounded-2xl hover:bg-slate-900/60 transition-all border border-transparent hover:border-slate-800 group">
-                    <div class="w-32 h-32 flex-shrink-0">
-                        <img src="images/Squello.jpeg" alt="Squello" class="w-full h-full object-cover rounded-2xl border-2 border-slate-700 group-hover:border-sky-500 transition-colors">
-                    </div>
-                    <div>
-                        <h3 class="text-3xl font-bold text-white mb-2">Geronimo Squellati</h3>
-                        <p class="text-slate-400 text-lg italic"> Navigatore</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center gap-10 p-6 rounded-2xl hover:bg-slate-900/60 transition-all border border-transparent hover:border-slate-800 group">
-                    <div class="w-32 h-32 flex-shrink-0">
-                        <img src="images/Tony.jpeg" alt="Tony" class="w-full h-full object-cover rounded-2xl border-2 border-slate-700 group-hover:border-sky-500 transition-colors">
-                    </div>
-                    <div>
-                        <h3 class="text-3xl font-bold text-white mb-2">Brian Toniazzo</h3>
-                        <p class="text-slate-400 text-lg italic"> Medico </p>
-                    </div>
-                </div>
-
-                <div class="flex items-center gap-10 p-6 rounded-2xl hover:bg-slate-900/60 transition-all border border-transparent hover:border-slate-800 group">
-                    <div class="w-32 h-32 flex-shrink-0">
-                        <img src="images/Calde.jpeg" alt="Membro 4" class="w-full h-full object-cover rounded-2xl border-2 border-slate-700 group-hover:border-sky-500 transition-colors">
-                    </div>
-                    <div>
-                        <h3 class="text-3xl font-bold text-white mb-2">Michael Segovia Calderon</h3>
-                        <p class="text-slate-400 text-lg italic"> Cecchino</p>
-                    </div>
-                </div>
-
+                <button onclick="changeCard(1)" class="absolute right-[-100px] z-50 p-4 rounded-full border border-slate-800 bg-slate-900/50 hover:bg-sky-500/20 hover:border-sky-500/50 transition-all group">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-400 group-hover:text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
             </div>
+
+            <div class="flex justify-center gap-3 mt-12" id="dotsContainer"></div>
         </div>
     </main>
 
@@ -84,5 +148,41 @@
         © 2026 Progetto Crittografia - Uso Didattico
     </footer>
 
+    <script>
+        let currentIdx = 0;
+        const cards = document.querySelectorAll('.member-card');
+        const dotsContainer = document.getElementById('dotsContainer');
+
+        cards.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.className = `h-1.5 w-10 rounded-full transition-all duration-300 ${i === 0 ? 'bg-sky-500 shadow-[0_0_10px_rgba(56,189,248,0.5)]' : 'bg-slate-800'}`;
+            dotsContainer.appendChild(dot);
+        });
+
+        function updateCards() {
+            cards.forEach((card, i) => {
+                card.classList.remove('active', 'prev', 'next');
+                if (i === currentIdx) {
+                    card.classList.add('active');
+                } else if (i === (currentIdx - 1 + cards.length) % cards.length) {
+                    card.classList.add('prev');
+                } else if (i === (currentIdx + 1) % cards.length) {
+                    card.classList.add('next');
+                }
+            });
+
+            const dots = dotsContainer.querySelectorAll('div');
+            dots.forEach((dot, i) => {
+                dot.className = `h-1.5 w-10 rounded-full transition-all duration-300 ${i === currentIdx ? 'bg-sky-500 shadow-[0_0_10px_rgba(56,189,248,0.5)]' : 'bg-slate-800'}`;
+            });
+        }
+
+        function changeCard(direction) {
+            currentIdx = (currentIdx + direction + cards.length) % cards.length;
+            updateCards();
+        }
+
+        updateCards();
+    </script>
 </body>
 </html>
