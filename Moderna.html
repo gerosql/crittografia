@@ -2,29 +2,316 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Nascita Crittografia Moderna</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crittografia Moderna - Archivio Digitale</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass-panel { background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(51, 65, 85, 0.5); }
+        .accent-gradient { background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%); }
+    </style>
 </head>
-<body class="bg-slate-950 text-white">
-    <nav class="py-6 px-8 border-b border-slate-800">
-        <div class="custom-container flex justify-between">
-            <div class="text-xs text-slate-500 uppercase tracking-widest">Sezione 03 / XX Secolo</div>
-            <a href="index.html" class="nav-link">← Home</a>
+<body class="bg-slate-950 text-white font-['Plus_Jakarta_Sans']">
+    
+    <nav class="py-6 px-8 border-b border-slate-800 bg-slate-950 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Sezione 03 / Il Secolo delle Macchine e dei Bit</div>
+            <div class="relative group">
+                <button class="text-sm font-semibold text-sky-400 hover:text-white transition-all flex items-center gap-2 py-2 px-4 border border-sky-500/20 rounded-lg">
+                    Esplora Archivio
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="absolute right-0 mt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2">
+                        <a href="index.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">Home</a>
+                        <a href="ANTICA_CifrarioCesare.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">01. Antica</a>
+                        <a href="CLASSICA_CifrariMonoPoliAlfabetici.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">02. Rinascimentale</a>
+                        <a href="Moderna.html" class="block px-4 py-2 text-sm text-sky-400 bg-slate-800/30 rounded-lg text-xs font-bold">03. Moderna</a>
+                        <a href="Simmetrica.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">04. Simmetrica</a>
+                        <a href="AssimetricaHASH.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">05. Asimmetrica & Hash</a>
+                        <a href="Oggi.html" class="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 rounded-lg text-xs">06. Oggi</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <main class="py-16">
-        <div class="max-w-4xl mx-auto px-8">
-            <h1 class="text-4xl font-bold mb-8">Crittografia moderna</h1>
+    <main class="py-16 px-8">
+        <div class="max-w-5xl mx-auto">
             
-            <div class="content-card p-10 rounded-xl mb-8">
-                <h2 class="text-2xl font-bold mb-4"></h2>
-                <p class="text-slate-300 leading-relaxed">
+            <header class="mb-20 text-center">
+                <div class="inline-block px-3 py-1 border border-sky-500/30 rounded-full text-[10px] uppercase tracking-widest text-sky-400 font-bold mb-4">
+                    Tappa 3: L'Evoluzione Scientifica
+                </div>
+                <h1 class="text-6xl font-extrabold mb-6 bg-gradient-to-r from-white via-sky-400 to-slate-500 bg-clip-text text-transparent italic tracking-tight">
+                    Crittografia Moderna
+                </h1>
+                <p class="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
+                    Dalle macchine a rotori alla rivoluzione asimmetrica: come il XX secolo ha trasformato un'arte bellica in una scienza esatta.
                 </p>
+            </header>
+
+            <!-- Principio di Kerckhoffs -->
+            <section class="glass-panel p-10 rounded-[2.5rem] mb-12">
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-sky-400 mb-6 italic">Il Cambio di Paradigma</h2>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            La crittografia moderna segna una linea di demarcazione netta rispetto al passato, basandosi non più sull'ingegno del singolo, ma su procedure matematiche verificabili e algoritmi pubblici.
+                        </p>
+                        <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800">
+                            <h3 class="text-lg font-bold text-white mb-3 italic">Il Principio di Kerckhoffs (1883)</h3>
+                            <p class="text-sm text-slate-400 leading-relaxed italic border-l-2 border-sky-500 pl-4">
+                                "La sicurezza di un sistema crittografico deve risiedere esclusivamente nella segretezza della chiave, non nel segreto dell'algoritmo."
+                            </p>
+                            <p class="mt-3 text-xs text-slate-500">
+                                Questo pilastro fondamentale permette lo sviluppo di standard globali (AES, RSA) analizzabili pubblicamente da chiunque voglia cercarne eventuali falle — e quindi rafforzarli.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="p-6 bg-slate-950/50 rounded-2xl border border-slate-800">
+                            <h4 class="text-sky-400 font-bold text-xs uppercase mb-4">I 4 Obiettivi della Crittografia Moderna</h4>
+                            <div class="grid grid-cols-2 gap-3 text-[10px] uppercase font-bold tracking-widest">
+                                <div class="p-3 bg-sky-500/10 border border-sky-500/20 rounded-xl text-center text-sky-400">Confidenzialità</div>
+                                <div class="p-3 bg-violet-500/10 border border-violet-500/20 rounded-xl text-center text-violet-400">Integrità</div>
+                                <div class="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-center text-emerald-400">Autenticazione</div>
+                                <div class="p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl text-center text-amber-400">Non Ripudio</div>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
+                            <h4 class="text-sky-400 font-bold text-xs uppercase mb-2">Componenti del Sistema</h4>
+                            <ul class="text-xs text-slate-400 space-y-2 mono">
+                                <li>• Plaintext: Il messaggio leggibile</li>
+                                <li>• Algorithm: La funzione matematica pubblica</li>
+                                <li>• Key: Il segreto variabile (la vera protezione)</li>
+                                <li>• Ciphertext: Il dato cifrato</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-white mb-8 text-center italic tracking-tighter">Pietre Miliari del XX Secolo</h2>
+                
+                <div class="grid gap-6">
+
+                    <!-- Enigma -->
+                    <div class="glass-panel p-8 rounded-[2rem] border-l-4 border-l-indigo-500">
+                        <div class="flex flex-col md:flex-row gap-8">
+                            <div class="md:w-1/3">
+                                <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-widest">1920–1945</span>
+                                <h3 class="text-2xl font-bold text-white mt-1 italic">Enigma e le Macchine a Rotori</h3>
+                            </div>
+                            <div class="md:w-2/3">
+                                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                    La macchina <strong>Enigma</strong>, sviluppata dall'ingegnere tedesco Arthur Scherbius nel 1918 e adottata dalla Wehrmacht, rappresenta il culmine della crittografia meccanica. Tre (o quattro, nella versione navale) rotori cablati ruotavano a ogni pressione di un tasto, creando miliardi di combinazioni possibili.
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-slate-950/50 p-4 rounded-xl text-xs text-slate-400">
+                                        <h5 class="text-white font-bold mb-2">Funzionamento</h5>
+                                        Il segnale elettrico percorreva: tastiera → rotori (andata) → riflettore → rotori (ritorno) → pannello lampade. I rotori avanzavano meccanicamente, cambiando la sostituzione a ogni lettera.
+                                    </div>
+                                    <div class="bg-slate-950/50 p-4 rounded-xl text-xs text-slate-400">
+                                        <h5 class="text-white font-bold mb-2">Combinazioni</h5>
+                                        Con 3 rotori scelti da 5, 26³ posizioni iniziali e un plugboard da 10 coppie: circa <strong class="text-indigo-400">158 quintilioni</strong> di configurazioni possibili. Un tentativo di brute force era impossibile per l'epoca.
+                                    </div>
+                                </div>
+                                <div class="bg-slate-950/50 p-4 rounded-xl border border-indigo-500/20 text-xs text-indigo-300 italic">
+                                    <strong>Il punto debole:</strong> Enigma non poteva mai cifrare una lettera come se stessa (A non diventava mai A). Questo difetto strutturale, insieme alle procedure operative tedesche prevedibili, fu cruciale per la sua violazione.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alan Turing -->
+                    <div class="glass-panel p-8 rounded-[2rem] border-l-4 border-l-sky-500">
+                        <div class="flex flex-col md:flex-row gap-8">
+                            <div class="md:w-1/3">
+                                <span class="text-[10px] font-bold text-sky-400 uppercase tracking-widest">1939–1945</span>
+                                <h3 class="text-2xl font-bold text-white mt-1 italic">Alan Turing e Bletchley Park</h3>
+                            </div>
+                            <div class="md:w-2/3">
+                                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                    Il matematico britannico <strong>Alan Turing</strong> guidò il team di decrittatori a Bletchley Park. Il suo contributo fu duplice: intellettuale e ingegneristico. Partendo dal lavoro del matematico polacco Marian Rejewski, Turing progettò la <strong>Bombe</strong> — una macchina elettromeccanica capace di testare sistematicamente le configurazioni di Enigma sfruttandone i difetti strutturali.
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-sky-500/5 border border-sky-500/20 p-4 rounded-xl text-xs">
+                                        <h5 class="text-sky-400 font-bold mb-2">La Bombe</h5>
+                                        <p class="text-slate-400">Ispirata al "Bomba" polacco, la Bombe di Turing cercava contraddizioni logiche nella struttura del messaggio per eliminare configurazioni impossibili. All'apice, 200 macchine giravano 24/7 a Bletchley Park.</p>
+                                    </div>
+                                    <div class="bg-sky-500/5 border border-sky-500/20 p-4 rounded-xl text-xs">
+                                        <h5 class="text-sky-400 font-bold mb-2">Ultra e l'Impatto sulla Guerra</h5>
+                                        <p class="text-slate-400">Le informazioni ottenute (nome in codice: <strong>Ultra</strong>) avrebbero abbreviato la guerra di 2-4 anni secondo lo storico David Kahn. Rimasero classificate fino al 1974.</p>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-950/50 p-4 rounded-xl border border-slate-800 text-xs text-slate-500 italic">
+                                    Turing non era solo un decrittatore. I suoi articoli teorici del 1936 (<em>"On Computable Numbers"</em>) e del 1950 (<em>"Computing Machinery and Intelligence"</em>) gettarono le basi dell'informatica teorica e dell'intelligenza artificiale. Fu perseguitato dal governo britannico per la sua omosessualità e morì nel 1954. Riabilitato postumo nel 2013.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- OTP -->
+                    <div class="glass-panel p-8 rounded-[2rem] border-l-4 border-l-emerald-500">
+                        <div class="flex flex-col md:flex-row gap-8">
+                            <div class="md:w-1/3">
+                                <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">1917 / 1945</span>
+                                <h3 class="text-2xl font-bold text-white mt-1 italic">Cifrario di Vernam (OTP)</h3>
+                            </div>
+                            <div class="md:w-2/3">
+                                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                    Gilbert Vernam creò l'unico sistema dimostrato matematicamente come <strong>perfettamente sicuro</strong> — nel 1945 Claude Shannon lo dimostrò formalmente con la teoria dell'informazione. Il <strong>One-Time Pad</strong> è inviolabile se usato correttamente.
+                                </p>
+                                <ul class="text-[11px] text-slate-400 space-y-2 mb-4 bg-slate-950/50 p-4 rounded-xl border border-slate-800">
+                                    <li><span class="text-emerald-400">✓</span> La chiave deve essere lunga almeno quanto il messaggio.</li>
+                                    <li><span class="text-emerald-400">✓</span> La chiave deve essere totalmente casuale (non pseudo-casuale).</li>
+                                    <li><span class="text-emerald-400">✓</span> La chiave deve essere usata una sola volta ("One-Time").</li>
+                                    <li><span class="text-emerald-400">✓</span> La chiave deve essere trasmessa su un canale sicuro.</li>
+                                </ul>
+                                <div class="p-3 bg-emerald-500/5 rounded-lg border border-emerald-500/20 text-[10px] text-emerald-300 mono">
+                                    Messaggio XOR Chiave_Casuale_Equiprobabile = Sicurezza Perfetta
+                                </div>
+                                <p class="mt-3 text-xs text-slate-500">Utilizzato durante la Guerra Fredda per la "linea rossa" Mosca-Washington. Il limite pratico è la distribuzione della chiave — un problema irrisolvibile senza incontrarsi fisicamente.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shannon -->
+                    <div class="glass-panel p-8 rounded-[2rem] border-l-4 border-l-violet-500">
+                        <div class="flex flex-col md:flex-row gap-8">
+                            <div class="md:w-1/3">
+                                <span class="text-[10px] font-bold text-violet-400 uppercase tracking-widest">1949</span>
+                                <h3 class="text-2xl font-bold text-white mt-1 italic">Claude Shannon e la Teoria dell'Informazione</h3>
+                            </div>
+                            <div class="md:w-2/3">
+                                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                    Con il suo articolo <em>"Communication Theory of Secrecy Systems"</em>, Claude Shannon trasformò la crittografia da arte a scienza esatta. Introdusse concetti fondamentali come <strong>entropia</strong>, <strong>confusione</strong> e <strong>diffusione</strong> — ancora alla base di ogni algoritmo moderno.
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-3 text-xs">
+                                    <div class="p-3 bg-violet-500/10 border border-violet-500/20 rounded-lg">
+                                        <h5 class="text-violet-400 font-bold mb-1">Confusione</h5>
+                                        <p class="text-slate-500">Ogni bit del testo cifrato deve dipendere da molte parti della chiave. Oscura la relazione chiave-cifrato.</p>
+                                    </div>
+                                    <div class="p-3 bg-violet-500/10 border border-violet-500/20 rounded-lg">
+                                        <h5 class="text-violet-400 font-bold mb-1">Diffusione</h5>
+                                        <p class="text-slate-500">Modificare 1 bit del testo chiaro deve cambiare ~50% dei bit del testo cifrato. Nasconde i pattern statistici.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DES -->
+                    <div class="glass-panel p-8 rounded-[2rem] border-l-4 border-l-sky-500">
+                        <div class="flex flex-col md:flex-row gap-8">
+                            <div class="md:w-1/3">
+                                <span class="text-[10px] font-bold text-sky-400 uppercase tracking-widest">1975</span>
+                                <h3 class="text-2xl font-bold text-white mt-1 italic">Data Encryption Standard</h3>
+                            </div>
+                            <div class="md:w-2/3">
+                                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                    Con l'avvento dei computer, IBM e la NSA definirono il primo standard digitale pubblico. Il <strong>DES</strong> elabora i dati in blocchi di 64 bit applicando 16 cicli di trasformazioni complesse basate su S-box (Substitution Boxes) progettate per resistere alla crittoanalisi differenziale.
+                                </p>
+                                <div class="flex gap-3 mb-4">
+                                    <div class="p-3 bg-slate-950/50 rounded-lg border border-slate-800 text-xs flex-1">
+                                        <div class="text-slate-400 font-bold mb-1">Dimensione chiave</div>
+                                        <div class="mono text-rose-400">56 bit → 2⁵⁶ combinazioni</div>
+                                        <div class="text-[10px] text-slate-600 mt-1">Nel 1999 violato in meno di 24 ore</div>
+                                    </div>
+                                    <div class="p-3 bg-slate-950/50 rounded-lg border border-slate-800 text-xs flex-1">
+                                        <div class="text-slate-400 font-bold mb-1">3DES (1999)</div>
+                                        <div class="mono text-amber-400">Chiave 112/168 bit</div>
+                                        <div class="text-[10px] text-slate-600 mt-1">Soluzione di transizione. Deprecato nel 2023.</div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-500">
+                                    Pilastro della sicurezza bancaria per decenni. La NSA, all'epoca, impose segretamente una chiave da 56 bit invece dei 64 proposti da IBM — lunghezza sufficiente per i computer dell'epoca ma attaccabile dai sistemi governativi.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RSA -->
+                    <div class="glass-panel p-8 rounded-[2rem] border-l-4 border-l-amber-500">
+                        <div class="flex flex-col md:flex-row gap-8">
+                            <div class="md:w-1/3">
+                                <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest">1977</span>
+                                <h3 class="text-2xl font-bold text-white mt-1 italic">La Rivoluzione RSA</h3>
+                            </div>
+                            <div class="md:w-2/3">
+                                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                    <strong>Rivest, Shamir e Adleman</strong> al MIT risolsero il problema della distribuzione delle chiavi introducendo la Crittografia Asimmetrica. Basato sulla difficoltà di fattorizzare numeri interi grandi, RSA permette di avere una chiave pubblica per cifrare e una privata per decifrare.
+                                </p>
+                                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                    Curiosità: un concetto equivalente era stato scoperto nel 1973 da Clifford Cocks per i servizi segreti britannici GCHQ, ma rimase classificato per 24 anni.
+                                </p>
+                                <div class="bg-amber-500/10 p-3 rounded-lg border border-amber-500/20 text-xs text-amber-200">
+                                    Senza RSA, non esisterebbero l'e-commerce, la navigazione sicura (HTTPS), le firme digitali legalmente valide o qualsiasi forma di identità digitale verificabile su reti aperte.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <!-- Steganografia -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <section class="glass-panel p-8 rounded-[2rem]">
+                    <h2 class="text-2xl font-bold text-emerald-400 mb-4 italic">Steganografia vs Crittografia</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Spesso confuse, sono tecniche complementari con obiettivi diversi:
+                    </p>
+                    <div class="space-y-3 text-sm">
+                        <div class="p-3 bg-slate-950/50 rounded-lg border border-sky-500/20">
+                            <span class="text-sky-400 font-bold">Crittografia:</span>
+                            <span class="text-slate-400"> rende il messaggio incomprensibile. Tutti sanno che c'è un segreto, nessuno riesce a leggerlo.</span>
+                        </div>
+                        <div class="p-3 bg-slate-950/50 rounded-lg border border-emerald-500/20">
+                            <span class="text-emerald-400 font-bold">Steganografia:</span>
+                            <span class="text-slate-400"> nasconde l'esistenza stessa del messaggio. Nessuno sa che c'è un segreto.</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-500 text-xs mt-4 leading-relaxed">
+                        Esempio moderno: nascondere dati nei bit meno significativi dei pixel di un'immagine JPEG — visivamente identica all'originale, ma contiene un messaggio nascosto.
+                    </p>
+                </section>
+                <section class="glass-panel p-8 rounded-[2rem]">
+                    <h2 class="text-2xl font-bold text-rose-400 mb-4 italic">Vulnerabilità Reali</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Un sistema matematicamente perfetto può fallire nell'implementazione. Le falle moderne raramente risiedono nell'algoritmo.
+                    </p>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-slate-950/50 rounded-2xl border border-slate-800 text-xs">
+                            <h4 class="text-white font-bold mb-1">Side-Channel Attack</h4>
+                            <p class="text-slate-500">Analizzare il tempo di esecuzione o il consumo energetico del chip rivela informazioni sulla chiave — senza mai attaccare la matematica.</p>
+                        </div>
+                        <div class="p-3 bg-slate-950/50 rounded-2xl border border-slate-800 text-xs">
+                            <h4 class="text-white font-bold mb-1">Generatori Pseudo-Casuali Difettosi</h4>
+                            <p class="text-slate-500">Nel 2013 si scoprì che la NSA aveva inserito un backdoor nel generatore DUAL_EC_DRBG, usato da Juniper e RSA Security.</p>
+                        </div>
+                        <div class="p-3 bg-slate-950/50 rounded-2xl border border-slate-800 text-xs">
+                            <h4 class="text-white font-bold mb-1">Ingegneria Sociale</h4>
+                            <p class="text-slate-500">Convincere un utente a rivelare la password è infinitamente più facile che rompere AES-256.</p>
+                        </div>
+                    </div>
+                </section>
             </div>
 
         </div>
     </main>
+
+    <footer class="py-12 border-t border-slate-900 text-center">
+        <div class="text-[10px] text-slate-600 uppercase tracking-[0.5em] font-bold">
+            Archivio Digitale — Fine Documentazione Sezione 03
+        </div>
+    </footer>
 </body>
 </html>
